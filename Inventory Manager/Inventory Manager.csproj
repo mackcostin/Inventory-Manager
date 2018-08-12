@@ -59,8 +59,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomePageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomePageUserControl.Designer.cs">
+      <DependentUpon>HomePageUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePageUserControl.resx">
+      <DependentUpon>HomePageUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageInventoryUserControl.resx">
       <DependentUpon>ManageInventoryUserControl.cs</DependentUpon>
