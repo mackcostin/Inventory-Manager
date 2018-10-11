@@ -15,7 +15,6 @@ namespace Inventory_Manager
         private string itemNameEntry;
         private double itemPriceEntry;
         private List<Item> itemList = new List<Item>();
-        private List<Item> itemToBeRemoved = new List<Item>();
         
         public ManageInventoryUserControl()
         {
@@ -23,19 +22,21 @@ namespace Inventory_Manager
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            
+        {          
             try
             {
-                //               checkedListBox1.Items.Add(item.getItemName().PadRight(30) + item.getItemPrice());
-            checkedListBox1.DataSource = null;
-            itemList.Add(new Item(itemNameEntry));
-            checkedListBox1.DataSource = itemList;
-            checkedListBox1.DisplayMember = "Item Name";  
+                if (tbxItemName.Text != "Enter item name here")
+                {
+                    if(tbxItemName.Text != "")
+                    {
+                        checkedListBox1.DataSource = null;
+                        itemList.Add(new Item(itemNameEntry));
+                        checkedListBox1.DataSource = itemList;
+                    }
+                }
+
                
-
-                
-
+                //               checkedListBox1.Items.Add(item.getItemName().PadRight(30) + item.getItemPrice());
             }catch(NullReferenceException nre)
             {
                 if(nre != null)
@@ -73,6 +74,9 @@ namespace Inventory_Manager
             }          
         }
 
+        /**
+         * Sets Item Price Text Box to empty when it is clicked on.
+         * */
         private void tbxEnterItemPrice_Click(object sender, EventArgs e)
         {
             if (tbxEnterItemPrice.Text == "Enter item price here")
@@ -89,8 +93,24 @@ namespace Inventory_Manager
             }
         }
 
+        /**
+         * Removes selected items from the itemList data source and refreshes checked list box accordingly.
+         * */
         private void btnRemoveItems_Click(object sender, EventArgs e)
         {
+            try
+            {
+                itemList.RemoveAt(checkedListBox1.SelectedIndex);
+                checkedListBox1.DataSource = null;
+                checkedListBox1.DataSource = itemList;
+            } catch(ArgumentOutOfRangeException outOfRangeException)
+            {
+                if(outOfRangeException != null)
+                {
+                    MessageBox.Show("There are no items to remove.");
+                }
+            }
+
         }
     }
 }
