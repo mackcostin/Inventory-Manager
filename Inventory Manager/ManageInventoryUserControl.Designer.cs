@@ -111,7 +111,7 @@
             this.tbxEnterItemPrice.TabIndex = 7;
             this.tbxEnterItemPrice.Text = "Enter item price here";
             this.tbxEnterItemPrice.Click += new System.EventHandler(this.tbxEnterItemPrice_Click);
-            this.tbxEnterItemPrice.TextChanged += new System.EventHandler(this.tbxEnterItemPrice_TextChanged);
+            this.tbxEnterItemPrice.Leave += new System.EventHandler(this.tbxEnterItemPrice_Leave);
             // 
             // btnConfirmSelection
             // 

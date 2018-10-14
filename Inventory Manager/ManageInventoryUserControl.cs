@@ -12,6 +12,8 @@ namespace Inventory_Manager
 {
     public partial class ManageInventoryUserControl : UserControl
     {
+        private const string itemPriceHintText = "Enter item price here";
+        private const string itemNameHintText = "Enter item name here";
         private string itemNameEntry;
         private double itemPriceEntry;
         private List<Item> itemList = new List<Item>();
@@ -21,70 +23,63 @@ namespace Inventory_Manager
             InitializeComponent();
         }
 
+        /**
+         * Adds the items to the list for final review and sets all data fields for the item object.
+         * */
         private void btnAddItem_Click(object sender, EventArgs e)
-        {          
-            try
-            {
-                if (tbxItemName.Text != "Enter item name here")
+        {
+              try
+              {
+                  if (tbxItemName.Text != itemNameHintText && tbxItemName.Text != "")
+                  {
+                    itemList.Add(new Item(itemNameEntry, itemPriceEntry));
+                    updateCheckListBoxAnswers();
+                      } else if(tbxItemName.Text == "")
+                      {
+                          MessageBox.Show("Please enter an item name");
+                      }  
+              }catch(NullReferenceException nre)
+              {
+                  if(nre != null)
+                  {
+                      Console.WriteLine("NullReferenceException when adding item: \n" + nre);
+                  }
+              }             
+        }
+
+        /**
+         * Removes item name text box hint on click.
+         * */
+        private void tbxItemName_Click(object sender, EventArgs e)
                 {
-                    if(tbxItemName.Text != "")
+                    if (tbxItemName.Text == itemNameHintText)
                     {
-                        checkedListBox1.DataSource = null;
-                        itemList.Add(new Item(itemNameEntry));
-                        checkedListBox1.DataSource = itemList;
+                        tbxItemName.Text = null;
                     }
                 }
 
-               
-                //               checkedListBox1.Items.Add(item.getItemName().PadRight(30) + item.getItemPrice());
-            }catch(NullReferenceException nre)
-            {
-                if(nre != null)
-                {
-                    Console.WriteLine("NullReferenceException when adding item: \n" + nre);
-                }
-            }           
-            
-        }
-
+        /**
+         * Sets the local itemNameEntry variable to what is entered in the text box
+         * */
         private void tbxItemName_TextChanged(object sender, EventArgs e)
         {
             itemNameEntry = tbxItemName.Text;
         }
 
-        private void tbxItemName_Click(object sender, EventArgs e)
-        {
-            if (tbxItemName.Text == "Enter item name here")
-            {
-                tbxItemName.Text = null;
-            }
-        }
-
-        private void tbxEnterItemPrice_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                itemPriceEntry = double.Parse(tbxEnterItemPrice.Text);
-            }catch(FormatException x)
-            {
-                if(e != null)
-                {
-                    Console.WriteLine("FormatException on price entry: \n" + x);
-                }
-            }          
-        }
-
-        /**
+         /**
          * Sets Item Price Text Box to empty when it is clicked on.
          * */
         private void tbxEnterItemPrice_Click(object sender, EventArgs e)
         {
-            if (tbxEnterItemPrice.Text == "Enter item price here")
+            if (tbxEnterItemPrice.Text == itemPriceHintText)
             {
                 tbxEnterItemPrice.Text = null;
             }
-        }
+        }       
 
+        /**
+         * Sets Tab Key after Item Name text box
+         * */
         private void tbxItemName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.Equals(Keys.Tab))
@@ -98,19 +93,51 @@ namespace Inventory_Manager
          * */
         private void btnRemoveItems_Click(object sender, EventArgs e)
         {
+            if(checkedListBox1.SelectedIndices.Count < 1)
+            {
+                MessageBox.Show(this, "Please select answer to be deleted");
+            }
+            else
+            {
+                for (int i = checkedListBox1.Items.Count -1; i >= 0; i--)
+                {
+                    if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        itemList.RemoveAt(i);
+                    }
+                }
+                updateCheckListBoxAnswers();
+            }
+        }
+
+        /**
+        ///Refreshes the checkedListBox
+        /*/
+        private void updateCheckListBoxAnswers()
+        {
+            checkedListBox1.DataSource = null;
+            checkedListBox1.DataSource = itemList;
+        }
+
+        /**
+        * Sets the item price variable and checks that it is a double.
+         * */
+        private void tbxEnterItemPrice_Leave(object sender, EventArgs e)
+        {
             try
             {
-                itemList.RemoveAt(checkedListBox1.SelectedIndex);
-                checkedListBox1.DataSource = null;
-                checkedListBox1.DataSource = itemList;
-            } catch(ArgumentOutOfRangeException outOfRangeException)
+                itemPriceEntry = double.Parse(tbxEnterItemPrice.Text);
+            }
+            catch (FormatException)
             {
-                if(outOfRangeException != null)
+                if (e != null)
                 {
-                    MessageBox.Show("There are no items to remove.");
+                    MessageBox.Show("Please enter in a price of double format.");
+                    tbxEnterItemPrice.Text = null;
                 }
             }
-
         }
     }
+
+
 }

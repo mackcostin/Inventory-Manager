@@ -12,9 +12,10 @@ namespace Inventory_Manager
         private int itemNumber;
         private double itemPrice;
 
-        public Item(string itemName)
+        public Item(string itemName, double itemPrice)
         {
             this.itemName = itemName;
+            this.itemPrice = itemPrice;
         }
 
         public void setItemName(string itemName)
@@ -23,11 +24,6 @@ namespace Inventory_Manager
         }
 
         public string getItemName()
-        {
-            return itemName;
-        }
-
-        public override string ToString()
         {
             return itemName;
         }
@@ -54,6 +50,11 @@ namespace Inventory_Manager
         public double getItemPrice()
         {
             return itemPrice;
+        }
+
+        public override string ToString()
+        {
+            return itemName;
         }
     }
 }
