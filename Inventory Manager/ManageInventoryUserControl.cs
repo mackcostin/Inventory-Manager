@@ -30,24 +30,19 @@ namespace Inventory_Manager
         {
               try
               {
-                  if (tbxItemName.Text != itemNameHintText && tbxItemName.Text != "" && itemPriceEntry != 0.0)
-                  {
+                if (checkFormEntries() == true)
+                {
                     itemList.Add(new Item(itemNameEntry, itemPriceEntry));
-                    resetHints();
                     updateCheckListBoxAnswers();
-                      } else if(tbxItemName.Text == "" || tbxItemName.Text == itemPriceHintText && 
-                                itemPriceEntry == 0.0 || tbxEnterItemPrice.Text == itemPriceHintText)
-                      {
-                    lblEnterItemNameHint.Text = "Please enter an item name";
-                    lblPriceHint.Text = "Please enter an item price in double format";
-                      }  
+                    resetFormEntry();
+                } 
               }catch(NullReferenceException nullReferenceException)
               {
                   if(nullReferenceException != null)
                   {
                       Console.WriteLine("NullReferenceException when adding item. Continuing...");
                   }
-              }             
+              }       
         }
 
         /**
@@ -111,29 +106,22 @@ namespace Inventory_Manager
             {
                 tbxEnterItemPrice.Text = null;
             }
-        }       
+        }
 
         /**
-        * Sets the item price variable and checks that it is a double.
+         * Takes input from the user and catches error if input format is wrong.
          * */
-        private void tbxEnterItemPrice_Leave(object sender, EventArgs e)
+        private void tbxEnterItemPrice_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if(itemPriceEntry != 0.0)
-                {
-                    lblPriceHint.Text = "";
-                }
                 itemPriceEntry = double.Parse(tbxEnterItemPrice.Text);
             }
             catch (FormatException formatException)
             {
-                if (formatException != null)
-                {
-                    Console.WriteLine("Format Exception occured on price entry. Continuing...");
-                    tbxEnterItemPrice.Text = null;
-                } 
+                Console.WriteLine("FormatException occured: \n" + formatException + "Continuing...");
             }
+
         }
 
         /**
@@ -145,10 +133,52 @@ namespace Inventory_Manager
             checkedListBox1.DataSource = itemList;
         }
 
-        private void resetHints()
+        /**
+         * Resets the form.
+         * */
+        private void resetFormEntry()
         {
             lblEnterItemNameHint.Text = null;
-            lblPriceHint.Text = null;
+            lblEnterPriceHint.Text = null;
+            tbxEnterItemPrice.Text = itemPriceHintText;
+            tbxItemName.Text = itemNameHintText;
+            itemNameEntry = null;
+            itemPriceEntry = 0;
+        }
+
+        /**
+         * This method checks that all entries in the form are valid and
+         * returns true if cleared or false if not cleared.
+         * */
+        private bool checkFormEntries()
+        {
+            if (tbxItemName.Text != itemNameHintText && 
+                tbxItemName.Text != "" && itemPriceEntry != 0)
+            {
+                return true;
+            }
+
+            if(String.IsNullOrWhiteSpace(tbxItemName.Text) || tbxItemName.Text == itemNameHintText)            
+            {
+                itemNameEntry = null;
+                lblEnterItemNameHint.Text = itemNameHintText;
+            } else {
+                lblEnterItemNameHint.Text = null;
+            }
+            
+            if(itemPriceEntry == 0 || tbxEnterItemPrice.Text == itemPriceHintText)
+            {
+                itemPriceEntry = 0;
+                tbxEnterItemPrice.Text = itemPriceHintText;
+                lblEnterPriceHint.Text = "Please enter a price of double format";
+            } else
+            {
+                lblEnterPriceHint.Text = null;
+            }  
+              
+            return false;
+
+    
         }
     }
 }

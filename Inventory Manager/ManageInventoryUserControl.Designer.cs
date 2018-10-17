@@ -37,7 +37,7 @@
             this.tbxEnterItemPrice = new System.Windows.Forms.TextBox();
             this.btnConfirmSelection = new System.Windows.Forms.Button();
             this.btnRemoveItems = new System.Windows.Forms.Button();
-            this.lblPriceHint = new System.Windows.Forms.Label();
+            this.lblEnterPriceHint = new System.Windows.Forms.Label();
             this.lblEnterItemNameHint = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@
             this.tbxEnterItemPrice.TabIndex = 7;
             this.tbxEnterItemPrice.Text = "Enter item price here";
             this.tbxEnterItemPrice.Click += new System.EventHandler(this.tbxEnterItemPrice_Click);
-            this.tbxEnterItemPrice.Leave += new System.EventHandler(this.tbxEnterItemPrice_Leave);
+            this.tbxEnterItemPrice.TextChanged += new System.EventHandler(this.tbxEnterItemPrice_TextChanged);
             // 
             // btnConfirmSelection
             // 
@@ -137,15 +137,15 @@
             this.btnRemoveItems.UseVisualStyleBackColor = true;
             this.btnRemoveItems.Click += new System.EventHandler(this.btnRemoveItems_Click);
             // 
-            // lblPriceHint
+            // lblEnterPriceHint
             // 
-            this.lblPriceHint.AutoSize = true;
-            this.lblPriceHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceHint.ForeColor = System.Drawing.Color.Red;
-            this.lblPriceHint.Location = new System.Drawing.Point(40, 168);
-            this.lblPriceHint.Name = "lblPriceHint";
-            this.lblPriceHint.Size = new System.Drawing.Size(0, 13);
-            this.lblPriceHint.TabIndex = 10;
+            this.lblEnterPriceHint.AutoSize = true;
+            this.lblEnterPriceHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterPriceHint.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterPriceHint.Location = new System.Drawing.Point(40, 168);
+            this.lblEnterPriceHint.Name = "lblEnterPriceHint";
+            this.lblEnterPriceHint.Size = new System.Drawing.Size(0, 13);
+            this.lblEnterPriceHint.TabIndex = 10;
             // 
             // lblEnterItemNameHint
             // 
@@ -162,7 +162,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblEnterItemNameHint);
-            this.Controls.Add(this.lblPriceHint);
+            this.Controls.Add(this.lblEnterPriceHint);
             this.Controls.Add(this.btnRemoveItems);
             this.Controls.Add(this.btnConfirmSelection);
             this.Controls.Add(this.tbxEnterItemPrice);
@@ -190,7 +190,7 @@
         private System.Windows.Forms.TextBox tbxEnterItemPrice;
         private System.Windows.Forms.Button btnConfirmSelection;
         private System.Windows.Forms.Button btnRemoveItems;
-        private System.Windows.Forms.Label lblPriceHint;
+        private System.Windows.Forms.Label lblEnterPriceHint;
         private System.Windows.Forms.Label lblEnterItemNameHint;
     }
 }
