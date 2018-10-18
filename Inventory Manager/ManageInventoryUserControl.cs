@@ -14,9 +14,12 @@ namespace Inventory_Manager
     {
         private const string itemPriceHintText = "Enter item price here";
         private const string itemNameHintText = "Enter item name here";
+        private const string itemNumberHintText = "Enter item number here";
         private string itemNameEntry;
         private double itemPriceEntry;
+        private int itemNumberEntry;
         private List<Item> itemList = new List<Item>();
+        private HashSet<Item> hashSet = new HashSet<Item>();
         
         public ManageInventoryUserControl()
         {
@@ -30,11 +33,17 @@ namespace Inventory_Manager
         {
               try
               {
+                if(checkDuplicates() == true)
+                {
+                    MessageBox.Show("Duplicate entries");
+                    resetFormEntry();
+                }
                 if (checkFormEntries() == true)
                 {
-                    itemList.Add(new Item(itemNameEntry, itemPriceEntry));
+                    itemList.Add(new Item(itemNameEntry, itemNumberEntry, itemPriceEntry));
                     updateCheckListBoxAnswers();
                     resetFormEntry();
+                    itemList.ForEach(Console.WriteLine);
                 } 
               }catch(NullReferenceException nullReferenceException)
               {
@@ -68,7 +77,7 @@ namespace Inventory_Manager
         }
 
         /**
-         * Removes item name text box hint on click.
+         * Removes item name text box hint when clicked.
          * */
         private void tbxItemName_Click(object sender, EventArgs e)
                 {
@@ -97,9 +106,34 @@ namespace Inventory_Manager
             }
         }
 
-         /**
-         * Sets Item Price Text Box to empty when it is clicked on.
+        /**
+         * Sets the local itemNumberEntry variable to value entered in text box.
          * */
+        private void tbxEnterItemNumber_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                itemNumberEntry = int.Parse(tbxEnterItemNumber.Text);
+            } catch(FormatException formatException)
+            {
+                Console.WriteLine("FormatException occured: \n" + formatException + "Continuing...");
+            }
+        }
+
+        /**
+         * Removes item number text box hint when clicked.
+         * */
+        private void tbxEnterItemNumber_Click(object sender, EventArgs e)
+        {
+            if (tbxEnterItemNumber.Text == itemNumberHintText)
+            {
+                tbxEnterItemNumber.Text = null;
+            }
+        }
+
+        /**
+        * Sets Item Price Text Box to empty when it is clicked on.
+        * */
         private void tbxEnterItemPrice_Click(object sender, EventArgs e)
         {
             if (tbxEnterItemPrice.Text == itemPriceHintText)
@@ -116,8 +150,7 @@ namespace Inventory_Manager
             try
             {
                 itemPriceEntry = double.Parse(tbxEnterItemPrice.Text);
-            }
-            catch (FormatException formatException)
+            } catch (FormatException formatException)
             {
                 Console.WriteLine("FormatException occured: \n" + formatException + "Continuing...");
             }
@@ -140,10 +173,13 @@ namespace Inventory_Manager
         {
             lblEnterItemNameHint.Text = null;
             lblEnterPriceHint.Text = null;
+            lblEnterItemNumberHint.Text = null;
             tbxEnterItemPrice.Text = itemPriceHintText;
             tbxItemName.Text = itemNameHintText;
+            tbxEnterItemNumber.Text = itemNumberHintText;
             itemNameEntry = null;
             itemPriceEntry = 0;
+            itemNumberEntry = 0;
         }
 
         /**
@@ -152,8 +188,9 @@ namespace Inventory_Manager
          * */
         private bool checkFormEntries()
         {
-            if (tbxItemName.Text != itemNameHintText && 
-                tbxItemName.Text != "" && itemPriceEntry != 0)
+            if (tbxItemName.Text != itemNameHintText &&
+                tbxItemName.Text != "" && itemPriceEntry != 0 &&
+                itemNumberEntry != 0)
             {
                 return true;
             }
@@ -161,11 +198,22 @@ namespace Inventory_Manager
             if(String.IsNullOrWhiteSpace(tbxItemName.Text) || tbxItemName.Text == itemNameHintText)            
             {
                 itemNameEntry = null;
+                tbxItemName.Text = itemNameHintText;
                 lblEnterItemNameHint.Text = itemNameHintText;
             } else {
                 lblEnterItemNameHint.Text = null;
             }
-            
+
+            if(itemNumberEntry == 0 || tbxEnterItemNumber.Text == itemNumberHintText)
+            {
+                itemNumberEntry = 0;
+                tbxEnterItemNumber.Text = itemNumberHintText;
+                lblEnterItemNumberHint.Text = "Please enter a valid item number";
+            } else
+            {
+                lblEnterItemNumberHint.Text = null;
+            }
+          
             if(itemPriceEntry == 0 || tbxEnterItemPrice.Text == itemPriceHintText)
             {
                 itemPriceEntry = 0;
@@ -179,6 +227,19 @@ namespace Inventory_Manager
             return false;
 
     
+        }
+        private bool checkDuplicates()
+        {
+
+            var duplicates = itemList.GroupBy(a => a.getItemNumber())
+                            .Where(a => a.Count() > 1)
+                            .Select(x => new { itemNumber = x.Key });
+
+            foreach (var item in duplicates)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

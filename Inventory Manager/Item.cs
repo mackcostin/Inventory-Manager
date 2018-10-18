@@ -12,10 +12,11 @@ namespace Inventory_Manager
         private int itemNumber;
         private double itemPrice;
 
-        public Item(string itemName, double itemPrice)
+        public Item(string itemName,int itemNumber , double itemPrice)
         {
             this.itemName = itemName;
             this.itemPrice = itemPrice;
+            this.itemNumber = itemNumber;
         }
 
         public void setItemName(string itemName)
@@ -34,7 +35,7 @@ namespace Inventory_Manager
          * */
         public void setItemNumber(int itemNumber)
         {
-
+            this.itemNumber = itemNumber;
         }
 
         public int getItemNumber()
@@ -54,7 +55,7 @@ namespace Inventory_Manager
 
         public override string ToString()
         {
-            return itemName;
+            return string.Format(itemName + "\t" + itemNumber);
         }
     }
 }

@@ -39,6 +39,9 @@
             this.btnRemoveItems = new System.Windows.Forms.Button();
             this.lblEnterPriceHint = new System.Windows.Forms.Label();
             this.lblEnterItemNameHint = new System.Windows.Forms.Label();
+            this.lblEnterItemNumber = new System.Windows.Forms.Label();
+            this.tbxEnterItemNumber = new System.Windows.Forms.TextBox();
+            this.lblEnterItemNumberHint = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblEnterItemName
@@ -67,7 +70,7 @@
             // lblInventoryManager
             // 
             this.lblInventoryManager.AutoSize = true;
-            this.lblInventoryManager.Font = new System.Drawing.Font("Century Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventoryManager.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventoryManager.Location = new System.Drawing.Point(36, 0);
             this.lblInventoryManager.Name = "lblInventoryManager";
             this.lblInventoryManager.Size = new System.Drawing.Size(311, 38);
@@ -157,10 +160,45 @@
             this.lblEnterItemNameHint.Size = new System.Drawing.Size(0, 13);
             this.lblEnterItemNameHint.TabIndex = 11;
             // 
+            // lblEnterItemNumber
+            // 
+            this.lblEnterItemNumber.AutoSize = true;
+            this.lblEnterItemNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterItemNumber.Location = new System.Drawing.Point(40, 181);
+            this.lblEnterItemNumber.Name = "lblEnterItemNumber";
+            this.lblEnterItemNumber.Size = new System.Drawing.Size(138, 13);
+            this.lblEnterItemNumber.TabIndex = 12;
+            this.lblEnterItemNumber.Text = "Enter the Item Number ";
+            // 
+            // tbxEnterItemNumber
+            // 
+            this.tbxEnterItemNumber.AllowDrop = true;
+            this.tbxEnterItemNumber.ForeColor = System.Drawing.Color.Black;
+            this.tbxEnterItemNumber.Location = new System.Drawing.Point(43, 197);
+            this.tbxEnterItemNumber.Name = "tbxEnterItemNumber";
+            this.tbxEnterItemNumber.Size = new System.Drawing.Size(209, 20);
+            this.tbxEnterItemNumber.TabIndex = 13;
+            this.tbxEnterItemNumber.Text = "Enter item number here";
+            this.tbxEnterItemNumber.Click += new System.EventHandler(this.tbxEnterItemNumber_Click);
+            this.tbxEnterItemNumber.TextChanged += new System.EventHandler(this.tbxEnterItemNumber_TextChanged);
+            // 
+            // lblEnterItemNumberHint
+            // 
+            this.lblEnterItemNumberHint.AutoSize = true;
+            this.lblEnterItemNumberHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterItemNumberHint.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterItemNumberHint.Location = new System.Drawing.Point(40, 220);
+            this.lblEnterItemNumberHint.Name = "lblEnterItemNumberHint";
+            this.lblEnterItemNumberHint.Size = new System.Drawing.Size(0, 13);
+            this.lblEnterItemNumberHint.TabIndex = 14;
+            // 
             // ManageInventoryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblEnterItemNumberHint);
+            this.Controls.Add(this.tbxEnterItemNumber);
+            this.Controls.Add(this.lblEnterItemNumber);
             this.Controls.Add(this.lblEnterItemNameHint);
             this.Controls.Add(this.lblEnterPriceHint);
             this.Controls.Add(this.btnRemoveItems);
@@ -192,5 +230,8 @@
         private System.Windows.Forms.Button btnRemoveItems;
         private System.Windows.Forms.Label lblEnterPriceHint;
         private System.Windows.Forms.Label lblEnterItemNameHint;
+        private System.Windows.Forms.Label lblEnterItemNumber;
+        private System.Windows.Forms.TextBox tbxEnterItemNumber;
+        private System.Windows.Forms.Label lblEnterItemNumberHint;
     }
 }
