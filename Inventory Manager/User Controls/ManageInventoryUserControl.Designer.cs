@@ -50,9 +50,9 @@
             this.lblEnterItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterItemName.Location = new System.Drawing.Point(40, 73);
             this.lblEnterItemName.Name = "lblEnterItemName";
-            this.lblEnterItemName.Size = new System.Drawing.Size(123, 13);
+            this.lblEnterItemName.Size = new System.Drawing.Size(176, 13);
             this.lblEnterItemName.TabIndex = 0;
-            this.lblEnterItemName.Text = "Enter the Item Name";
+            this.lblEnterItemName.Text = "Enter the InventoryItem Name";
             // 
             // tbxItemName
             // 
@@ -65,7 +65,6 @@
             this.tbxItemName.Text = "Enter item name here";
             this.tbxItemName.Click += new System.EventHandler(this.tbxItemName_Click);
             this.tbxItemName.TextChanged += new System.EventHandler(this.tbxItemName_TextChanged);
-            this.tbxItemName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxItemName_KeyDown);
             // 
             // lblInventoryManager
             // 
@@ -74,7 +73,7 @@
             this.lblInventoryManager.Location = new System.Drawing.Point(36, 0);
             this.lblInventoryManager.Name = "lblInventoryManager";
             this.lblInventoryManager.Size = new System.Drawing.Size(311, 38);
-            this.lblInventoryManager.TabIndex = 2;
+            this.lblInventoryManager.TabIndex = 0;
             this.lblInventoryManager.Text = "Inventory Manager";
             // 
             // btnAddItem
@@ -94,7 +93,7 @@
             this.checkedListBox1.Location = new System.Drawing.Point(442, 65);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(319, 394);
-            this.checkedListBox1.TabIndex = 5;
+            this.checkedListBox1.TabIndex = 6;
             // 
             // lblEnterPrice
             // 
@@ -103,7 +102,7 @@
             this.lblEnterPrice.Location = new System.Drawing.Point(40, 129);
             this.lblEnterPrice.Name = "lblEnterPrice";
             this.lblEnterPrice.Size = new System.Drawing.Size(95, 13);
-            this.lblEnterPrice.TabIndex = 6;
+            this.lblEnterPrice.TabIndex = 0;
             this.lblEnterPrice.Text = "Enter the price ";
             // 
             // tbxEnterItemPrice
@@ -113,7 +112,7 @@
             this.tbxEnterItemPrice.Location = new System.Drawing.Point(43, 145);
             this.tbxEnterItemPrice.Name = "tbxEnterItemPrice";
             this.tbxEnterItemPrice.Size = new System.Drawing.Size(209, 20);
-            this.tbxEnterItemPrice.TabIndex = 7;
+            this.tbxEnterItemPrice.TabIndex = 2;
             this.tbxEnterItemPrice.Text = "Enter item price here";
             this.tbxEnterItemPrice.Click += new System.EventHandler(this.tbxEnterItemPrice_Click);
             this.tbxEnterItemPrice.TextChanged += new System.EventHandler(this.tbxEnterItemPrice_TextChanged);
@@ -126,16 +125,17 @@
             this.btnConfirmSelection.Location = new System.Drawing.Point(543, 465);
             this.btnConfirmSelection.Name = "btnConfirmSelection";
             this.btnConfirmSelection.Size = new System.Drawing.Size(218, 60);
-            this.btnConfirmSelection.TabIndex = 8;
+            this.btnConfirmSelection.TabIndex = 7;
             this.btnConfirmSelection.Text = "Confirm Selection";
             this.btnConfirmSelection.UseVisualStyleBackColor = false;
+            this.btnConfirmSelection.Click += new System.EventHandler(this.btnConfirmSelection_Click);
             // 
             // btnRemoveItems
             // 
             this.btnRemoveItems.Location = new System.Drawing.Point(181, 472);
             this.btnRemoveItems.Name = "btnRemoveItems";
             this.btnRemoveItems.Size = new System.Drawing.Size(110, 53);
-            this.btnRemoveItems.TabIndex = 9;
+            this.btnRemoveItems.TabIndex = 5;
             this.btnRemoveItems.Text = "Remove Selected";
             this.btnRemoveItems.UseVisualStyleBackColor = true;
             this.btnRemoveItems.Click += new System.EventHandler(this.btnRemoveItems_Click);
@@ -148,7 +148,7 @@
             this.lblEnterPriceHint.Location = new System.Drawing.Point(40, 168);
             this.lblEnterPriceHint.Name = "lblEnterPriceHint";
             this.lblEnterPriceHint.Size = new System.Drawing.Size(0, 13);
-            this.lblEnterPriceHint.TabIndex = 10;
+            this.lblEnterPriceHint.TabIndex = 0;
             // 
             // lblEnterItemNameHint
             // 
@@ -158,7 +158,7 @@
             this.lblEnterItemNameHint.Location = new System.Drawing.Point(40, 113);
             this.lblEnterItemNameHint.Name = "lblEnterItemNameHint";
             this.lblEnterItemNameHint.Size = new System.Drawing.Size(0, 13);
-            this.lblEnterItemNameHint.TabIndex = 11;
+            this.lblEnterItemNameHint.TabIndex = 0;
             // 
             // lblEnterItemNumber
             // 
@@ -166,9 +166,9 @@
             this.lblEnterItemNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterItemNumber.Location = new System.Drawing.Point(40, 181);
             this.lblEnterItemNumber.Name = "lblEnterItemNumber";
-            this.lblEnterItemNumber.Size = new System.Drawing.Size(138, 13);
-            this.lblEnterItemNumber.TabIndex = 12;
-            this.lblEnterItemNumber.Text = "Enter the Item Number ";
+            this.lblEnterItemNumber.Size = new System.Drawing.Size(191, 13);
+            this.lblEnterItemNumber.TabIndex = 0;
+            this.lblEnterItemNumber.Text = "Enter the InventoryItem Number ";
             // 
             // tbxEnterItemNumber
             // 
@@ -177,7 +177,7 @@
             this.tbxEnterItemNumber.Location = new System.Drawing.Point(43, 197);
             this.tbxEnterItemNumber.Name = "tbxEnterItemNumber";
             this.tbxEnterItemNumber.Size = new System.Drawing.Size(209, 20);
-            this.tbxEnterItemNumber.TabIndex = 13;
+            this.tbxEnterItemNumber.TabIndex = 3;
             this.tbxEnterItemNumber.Text = "Enter item number here";
             this.tbxEnterItemNumber.Click += new System.EventHandler(this.tbxEnterItemNumber_Click);
             this.tbxEnterItemNumber.TextChanged += new System.EventHandler(this.tbxEnterItemNumber_TextChanged);
@@ -190,7 +190,7 @@
             this.lblEnterItemNumberHint.Location = new System.Drawing.Point(40, 220);
             this.lblEnterItemNumberHint.Name = "lblEnterItemNumberHint";
             this.lblEnterItemNumberHint.Size = new System.Drawing.Size(0, 13);
-            this.lblEnterItemNumberHint.TabIndex = 14;
+            this.lblEnterItemNumberHint.TabIndex = 0;
             // 
             // ManageInventoryUserControl
             // 

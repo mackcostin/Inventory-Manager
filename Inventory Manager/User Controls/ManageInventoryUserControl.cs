@@ -12,20 +12,24 @@ namespace Inventory_Manager
 {
     public partial class ManageInventoryUserControl : UserControl
     {
+        #region UC Variables
         private const string itemPriceHintText = "Enter item price here";
         private const string itemNameHintText = "Enter item name here";
         private const string itemNumberHintText = "Enter item number here";
         private string itemNameEntry;
         private double itemPriceEntry;
         private int itemNumberEntry;
-        private List<Item> itemList = new List<Item>();
-        private HashSet<Item> hashSet = new HashSet<Item>();
-        
+        private List<InventoryItem> itemList = new List<InventoryItem>();
+        private HashSet<InventoryItem> hashSet = new HashSet<InventoryItem>();
+        #endregion
+
         public ManageInventoryUserControl()
         {
             InitializeComponent();
         }
 
+
+        #region UC Event Handlers
         /**
          * Adds the items to the list for final review and sets all data fields for the item object.
          * */
@@ -33,17 +37,22 @@ namespace Inventory_Manager
         {
               try
               {
-                if(checkDuplicates() == true)
-                {
-                    MessageBox.Show("Duplicate entries");
-                    resetFormEntry();
-                }
+
                 if (checkFormEntries() == true)
                 {
-                    itemList.Add(new Item(itemNameEntry, itemNumberEntry, itemPriceEntry));
-                    updateCheckListBoxAnswers();
-                    resetFormEntry();
-                    itemList.ForEach(Console.WriteLine);
+                    InventoryItem newItem = new InventoryItem(itemNameEntry, itemNumberEntry, itemPriceEntry);
+                    if (checkDuplicates(newItem) == true)
+                    {
+                        MessageBox.Show("InventoryItem with that item number already added to list! Cannot contain duplicate entries.");
+                        resetFormEntry();
+                    }
+                    else
+                    {
+                        itemList.Add(newItem);
+                        updateCheckListBoxAnswers();
+                        resetFormEntry();
+                        itemList.ForEach(Console.WriteLine);
+                    }
                 } 
               }catch(NullReferenceException nullReferenceException)
               {
@@ -77,6 +86,14 @@ namespace Inventory_Manager
         }
 
         /**
+         * Sends the data to the DAC class -
+         * Adds the relevant data to the SQL database.
+         * */
+        private void btnConfirmSelection_Click(object sender, EventArgs e)
+        {
+        }
+
+        /**
          * Removes item name text box hint when clicked.
          * */
         private void tbxItemName_Click(object sender, EventArgs e)
@@ -93,17 +110,6 @@ namespace Inventory_Manager
         private void tbxItemName_TextChanged(object sender, EventArgs e)
         {
             itemNameEntry = tbxItemName.Text;
-        }
-
-        /**
-         * Sets Tab Key after Item Name text box
-         * */
-        private void tbxItemName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode.Equals(Keys.Tab))
-            {
-                tbxEnterItemPrice.Focus();
-            }
         }
 
         /**
@@ -132,7 +138,7 @@ namespace Inventory_Manager
         }
 
         /**
-        * Sets Item Price Text Box to empty when it is clicked on.
+        * Sets InventoryItem Price Text Box to empty when it is clicked on.
         * */
         private void tbxEnterItemPrice_Click(object sender, EventArgs e)
         {
@@ -156,7 +162,9 @@ namespace Inventory_Manager
             }
 
         }
+        #endregion
 
+        #region UC refreshing
         /**
         ///Refreshes the checkedListBox
         /*/
@@ -181,7 +189,9 @@ namespace Inventory_Manager
             itemPriceEntry = 0;
             itemNumberEntry = 0;
         }
+        #endregion
 
+        #region UC Entries Validation
         /**
          * This method checks that all entries in the form are valid and
          * returns true if cleared or false if not cleared.
@@ -228,18 +238,25 @@ namespace Inventory_Manager
 
     
         }
-        private bool checkDuplicates()
+
+        /**
+         * Checks if new item has the same item number as an existing item in the list.
+         * */
+        private bool checkDuplicates(InventoryItem newItem)
         {
 
-            var duplicates = itemList.GroupBy(a => a.getItemNumber())
-                            .Where(a => a.Count() > 1)
-                            .Select(x => new { itemNumber = x.Key });
-
-            foreach (var item in duplicates)
+            foreach (InventoryItem item in itemList)
             {
-                return true;
+                if (item.itemNumber == newItem.itemNumber)
+                {
+                    return true;
+                }
             }
-            return false;
+
+            return false; 
         }
+        #endregion
+
+
     }
 }
