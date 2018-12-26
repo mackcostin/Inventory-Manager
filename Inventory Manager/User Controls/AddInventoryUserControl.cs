@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Inventory_Manager
+namespace Inventory_Manager.User_Controls
 {
-    public partial class ManageInventoryUserControl : UserControl
+    public partial class AddInventoryUserControl : UserControl
     {
         #region UC Variables
         private const string itemPriceHintText = "Enter item price here";
@@ -23,11 +23,10 @@ namespace Inventory_Manager
         private HashSet<InventoryItem> hashSet = new HashSet<InventoryItem>();
         #endregion
 
-        public ManageInventoryUserControl()
+        public AddInventoryUserControl()
         {
             InitializeComponent();
         }
-
 
         #region UC Event Handlers
         /**
@@ -35,8 +34,8 @@ namespace Inventory_Manager
          * */
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-              try
-              {
+            try
+            {
 
                 if (checkFormEntries() == true)
                 {
@@ -53,14 +52,15 @@ namespace Inventory_Manager
                         resetFormEntry();
                         itemList.ForEach(Console.WriteLine);
                     }
-                } 
-              }catch(NullReferenceException nullReferenceException)
-              {
-                  if(nullReferenceException != null)
-                  {
-                      Console.WriteLine("NullReferenceException when adding item. Continuing...");
-                  }
-              }       
+                }
+            }
+            catch (NullReferenceException nullReferenceException)
+            {
+                if (nullReferenceException != null)
+                {
+                    Console.WriteLine("NullReferenceException when adding item. Continuing...");
+                }
+            }
         }
 
         /**
@@ -68,13 +68,13 @@ namespace Inventory_Manager
          * */
         private void btnRemoveItems_Click(object sender, EventArgs e)
         {
-            if(checkedListBox1.SelectedIndices.Count < 1)
+            if (checkedListBox1.SelectedIndices.Count < 1)
             {
                 MessageBox.Show(this, "Please select answer to be deleted");
             }
             else
             {
-                for (int i = checkedListBox1.Items.Count -1; i >= 0; i--)
+                for (int i = checkedListBox1.Items.Count - 1; i >= 0; i--)
                 {
                     if (checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
                     {
@@ -97,12 +97,12 @@ namespace Inventory_Manager
          * Removes item name text box hint when clicked.
          * */
         private void tbxItemName_Click(object sender, EventArgs e)
-                {
-                    if (tbxItemName.Text == itemNameHintText)
-                    {
-                        tbxItemName.Text = null;
-                    }
-                }
+        {
+            if (tbxItemName.Text == itemNameHintText)
+            {
+                tbxItemName.Text = null;
+            }
+        }
 
         /**
          * Sets the local itemNameEntry variable to what is entered in the text box
@@ -120,7 +120,8 @@ namespace Inventory_Manager
             try
             {
                 itemNumberEntry = int.Parse(tbxEnterItemNumber.Text);
-            } catch(FormatException formatException)
+            }
+            catch (FormatException formatException)
             {
                 Console.WriteLine("FormatException occured: \n" + formatException + "Continuing...");
             }
@@ -156,7 +157,8 @@ namespace Inventory_Manager
             try
             {
                 itemPriceEntry = double.Parse(tbxEnterItemPrice.Text);
-            } catch (FormatException formatException)
+            }
+            catch (FormatException formatException)
             {
                 Console.WriteLine("FormatException occured: \n" + formatException + "Continuing...");
             }
@@ -205,38 +207,42 @@ namespace Inventory_Manager
                 return true;
             }
 
-            if(String.IsNullOrWhiteSpace(tbxItemName.Text) || tbxItemName.Text == itemNameHintText)            
+            if (String.IsNullOrWhiteSpace(tbxItemName.Text) || tbxItemName.Text == itemNameHintText)
             {
                 itemNameEntry = null;
                 tbxItemName.Text = itemNameHintText;
                 lblEnterItemNameHint.Text = itemNameHintText;
-            } else {
+            }
+            else
+            {
                 lblEnterItemNameHint.Text = null;
             }
 
-            if(itemNumberEntry == 0 || tbxEnterItemNumber.Text == itemNumberHintText)
+            if (itemNumberEntry == 0 || tbxEnterItemNumber.Text == itemNumberHintText)
             {
                 itemNumberEntry = 0;
                 tbxEnterItemNumber.Text = itemNumberHintText;
                 lblEnterItemNumberHint.Text = "Please enter a valid item number";
-            } else
+            }
+            else
             {
                 lblEnterItemNumberHint.Text = null;
             }
-          
-            if(itemPriceEntry == 0 || tbxEnterItemPrice.Text == itemPriceHintText)
+
+            if (itemPriceEntry == 0 || tbxEnterItemPrice.Text == itemPriceHintText)
             {
                 itemPriceEntry = 0;
                 tbxEnterItemPrice.Text = itemPriceHintText;
                 lblEnterPriceHint.Text = "Please enter a price of double format";
-            } else
+            }
+            else
             {
                 lblEnterPriceHint.Text = null;
-            }  
-              
+            }
+
             return false;
 
-    
+
         }
 
         /**
@@ -253,10 +259,8 @@ namespace Inventory_Manager
                 }
             }
 
-            return false; 
+            return false;
         }
         #endregion
-
-
     }
 }

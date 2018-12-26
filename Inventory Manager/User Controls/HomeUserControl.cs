@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Inventory_Manager.User_Controls
 {
-    public partial class HomePageUserControl : UserControl
+    public partial class HomeUserControl : UserControl
     {
         private const string svrNameHintText = "Enter Server Name Here";
-        private const string usrNameHintText = "Enter Username Here";
-        private const string passwordHintText = "Enter Password Here";
+        private const string dbUsrNameHintText = "Enter Username Here";
+        private const string dbPasswordHintText = "Enter Password Here";
 
-        public HomePageUserControl()
+        public HomeUserControl()
         {
             InitializeComponent();
         }
 
-        #region Textbox Hint Handlers
+        #region TextBox Hints Removal
         private void tbxSvrName_Click(object sender, EventArgs e)
         {
             if (tbxSvrName.Text == svrNameHintText)
@@ -32,7 +32,7 @@ namespace Inventory_Manager.User_Controls
 
         private void tbxSvrUsrName_Click(object sender, EventArgs e)
         {
-            if (tbxSvrUsrName.Text == usrNameHintText)
+            if(tbxSvrUsrName.Text == dbUsrNameHintText)
             {
                 tbxSvrUsrName.Text = null;
             }
@@ -40,12 +40,11 @@ namespace Inventory_Manager.User_Controls
 
         private void tbxSvrPassword_Click(object sender, EventArgs e)
         {
-            if (tbxSvrPassword.Text == passwordHintText)
+            if (tbxSvrPassword.Text == dbPasswordHintText)
             {
                 tbxSvrPassword.Text = null;
             }
         }
         #endregion
-
     }
 }

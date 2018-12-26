@@ -72,11 +72,11 @@
     </Compile>
     <Compile Include="Entities\InventoryItem.cs" />
     <Compile Include="Settings\AppSettings.cs" />
-    <Compile Include="User Controls\ManageInventoryUserControl.cs">
+    <Compile Include="User Controls\AddInventoryUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\ManageInventoryUserControl.Designer.cs">
-      <DependentUpon>ManageInventoryUserControl.cs</DependentUpon>
+    <Compile Include="User Controls\AddInventoryUserControl.Designer.cs">
+      <DependentUpon>AddInventoryUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,14 +86,17 @@
     <Compile Include="User Controls\HomePageUserControl.Designer.cs">
       <DependentUpon>HomePageUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\WelcomeScreenUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\WelcomeScreenUserControl.Designer.cs">
+      <DependentUpon>WelcomeScreenUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\HomePageUserControl.resx">
-      <DependentUpon>HomePageUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\ManageInventoryUserControl.resx">
-      <DependentUpon>ManageInventoryUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\AddInventoryUserControl.resx">
+      <DependentUpon>AddInventoryUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,6 +108,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User Controls\HomePageUserControl.resx">
+      <DependentUpon>HomePageUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\WelcomeScreenUserControl.resx">
+      <DependentUpon>WelcomeScreenUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,7 +125,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-home-50.png" />
