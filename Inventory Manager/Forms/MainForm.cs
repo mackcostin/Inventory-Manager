@@ -14,17 +14,20 @@ namespace Inventory_Manager
 {
     public partial class MainForm : Form
     {
+        #region Variables
         private WelcomeScreenUserControl welcomeScreenUserControl = new WelcomeScreenUserControl();
-        private AddInventoryUserControl addInventoryUserControl = new AddInventoryUserControl();
+        private AddInventoryUC addInventoryUserControl = new AddInventoryUC();
         private HomePageUserControl homePageUserControl = new HomePageUserControl();
         private AppSettings settings = new AppSettings();
+        #endregion
 
+        #region Event Handlers
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             if (settings.checkIfAppUsed() == true)
             {
@@ -46,28 +49,9 @@ namespace Inventory_Manager
                 Environment.Exit(0);
             };
         }
+        #endregion
 
-        private void manageInventoryUserControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void homePageUserControl1_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-
-
-        private void userControlPanel_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        /**
-         * Methods from in this section are used for the navigation pane.
-         * */
+        #region Navigation Pane
         private void btnManageInventory_Click(object sender, EventArgs e)
         {
             userControlPanel.Controls.Remove(homePageUserControl);
@@ -76,11 +60,18 @@ namespace Inventory_Manager
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
-            userControlPanel.Controls.Remove(addInventoryUserControl);
-            userControlPanel.Controls.Add(welcomeScreenUserControl);
+            if(settings.checkIfAppUsed() == true)
+            {
+                userControlPanel.Controls.Remove(addInventoryUserControl);
+                userControlPanel.Controls.Add(homePageUserControl);
+            }
+            else
+            {
+                userControlPanel.Controls.Remove(addInventoryUserControl);
+                userControlPanel.Controls.Add(welcomeScreenUserControl);
+            }
+
         }
-        /**
-         * END NAVIGATION PANE METHODS
-         * */
+        #endregion
     }
 }

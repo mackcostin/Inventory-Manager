@@ -37,6 +37,7 @@
             this.lblDBName = new System.Windows.Forms.Label();
             this.cmbDatabases = new System.Windows.Forms.ComboBox();
             this.btnTestConnection = new System.Windows.Forms.Button();
+            this.lblHomePgHeader = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxSvrName
@@ -119,10 +120,22 @@
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
             // 
+            // lblHomePgHeader
+            // 
+            this.lblHomePgHeader.AutoSize = true;
+            this.lblHomePgHeader.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHomePgHeader.Location = new System.Drawing.Point(52, 0);
+            this.lblHomePgHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblHomePgHeader.Name = "lblHomePgHeader";
+            this.lblHomePgHeader.Size = new System.Drawing.Size(103, 37);
+            this.lblHomePgHeader.TabIndex = 10;
+            this.lblHomePgHeader.Text = "Home";
+            // 
             // HomePageUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblHomePgHeader);
             this.Controls.Add(this.btnTestConnection);
             this.Controls.Add(this.cmbDatabases);
             this.Controls.Add(this.lblDBName);
@@ -150,5 +163,6 @@
         private System.Windows.Forms.Label lblDBName;
         private System.Windows.Forms.ComboBox cmbDatabases;
         private System.Windows.Forms.Button btnTestConnection;
+        private System.Windows.Forms.Label lblHomePgHeader;
     }
 }

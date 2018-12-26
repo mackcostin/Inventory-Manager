@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Manager.User_Controls
 {
-    partial class AddInventoryUserControl
+    partial class AddInventoryUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.lblEnterItemNumberHint.AutoSize = true;
             this.lblEnterItemNumberHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterItemNumberHint.ForeColor = System.Drawing.Color.Red;
-            this.lblEnterItemNumberHint.Location = new System.Drawing.Point(65, 248);
+            this.lblEnterItemNumberHint.Location = new System.Drawing.Point(55, 240);
             this.lblEnterItemNumberHint.Name = "lblEnterItemNumberHint";
             this.lblEnterItemNumberHint.Size = new System.Drawing.Size(0, 13);
             this.lblEnterItemNumberHint.TabIndex = 8;
@@ -58,7 +58,7 @@
             // 
             this.tbxEnterItemNumber.AllowDrop = true;
             this.tbxEnterItemNumber.ForeColor = System.Drawing.Color.Black;
-            this.tbxEnterItemNumber.Location = new System.Drawing.Point(68, 225);
+            this.tbxEnterItemNumber.Location = new System.Drawing.Point(58, 217);
             this.tbxEnterItemNumber.Name = "tbxEnterItemNumber";
             this.tbxEnterItemNumber.Size = new System.Drawing.Size(209, 20);
             this.tbxEnterItemNumber.TabIndex = 17;
@@ -70,7 +70,7 @@
             // 
             this.lblEnterItemNumber.AutoSize = true;
             this.lblEnterItemNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnterItemNumber.Location = new System.Drawing.Point(65, 209);
+            this.lblEnterItemNumber.Location = new System.Drawing.Point(55, 201);
             this.lblEnterItemNumber.Name = "lblEnterItemNumber";
             this.lblEnterItemNumber.Size = new System.Drawing.Size(138, 13);
             this.lblEnterItemNumber.TabIndex = 9;
@@ -81,7 +81,7 @@
             this.lblEnterItemNameHint.AutoSize = true;
             this.lblEnterItemNameHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterItemNameHint.ForeColor = System.Drawing.Color.Red;
-            this.lblEnterItemNameHint.Location = new System.Drawing.Point(65, 141);
+            this.lblEnterItemNameHint.Location = new System.Drawing.Point(55, 133);
             this.lblEnterItemNameHint.Name = "lblEnterItemNameHint";
             this.lblEnterItemNameHint.Size = new System.Drawing.Size(0, 13);
             this.lblEnterItemNameHint.TabIndex = 10;
@@ -91,7 +91,7 @@
             this.lblEnterPriceHint.AutoSize = true;
             this.lblEnterPriceHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEnterPriceHint.ForeColor = System.Drawing.Color.Red;
-            this.lblEnterPriceHint.Location = new System.Drawing.Point(65, 196);
+            this.lblEnterPriceHint.Location = new System.Drawing.Point(55, 188);
             this.lblEnterPriceHint.Name = "lblEnterPriceHint";
             this.lblEnterPriceHint.Size = new System.Drawing.Size(0, 13);
             this.lblEnterPriceHint.TabIndex = 11;
@@ -122,7 +122,7 @@
             // 
             this.tbxEnterItemPrice.AllowDrop = true;
             this.tbxEnterItemPrice.ForeColor = System.Drawing.Color.Black;
-            this.tbxEnterItemPrice.Location = new System.Drawing.Point(68, 173);
+            this.tbxEnterItemPrice.Location = new System.Drawing.Point(58, 165);
             this.tbxEnterItemPrice.Name = "tbxEnterItemPrice";
             this.tbxEnterItemPrice.Size = new System.Drawing.Size(209, 20);
             this.tbxEnterItemPrice.TabIndex = 16;
@@ -134,7 +134,7 @@
             // 
             this.lblEnterPrice.AutoSize = true;
             this.lblEnterPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnterPrice.Location = new System.Drawing.Point(65, 157);
+            this.lblEnterPrice.Location = new System.Drawing.Point(55, 149);
             this.lblEnterPrice.Name = "lblEnterPrice";
             this.lblEnterPrice.Size = new System.Drawing.Size(95, 13);
             this.lblEnterPrice.TabIndex = 12;
@@ -163,7 +163,7 @@
             // 
             this.lblInventoryManager.AutoSize = true;
             this.lblInventoryManager.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventoryManager.Location = new System.Drawing.Point(61, 28);
+            this.lblInventoryManager.Location = new System.Drawing.Point(52, 0);
             this.lblInventoryManager.Name = "lblInventoryManager";
             this.lblInventoryManager.Size = new System.Drawing.Size(311, 38);
             this.lblInventoryManager.TabIndex = 13;
@@ -173,7 +173,7 @@
             // 
             this.tbxItemName.AllowDrop = true;
             this.tbxItemName.ForeColor = System.Drawing.Color.Black;
-            this.tbxItemName.Location = new System.Drawing.Point(68, 118);
+            this.tbxItemName.Location = new System.Drawing.Point(58, 110);
             this.tbxItemName.Name = "tbxItemName";
             this.tbxItemName.Size = new System.Drawing.Size(209, 20);
             this.tbxItemName.TabIndex = 15;
@@ -185,13 +185,13 @@
             // 
             this.lblEnterItemName.AutoSize = true;
             this.lblEnterItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnterItemName.Location = new System.Drawing.Point(65, 101);
+            this.lblEnterItemName.Location = new System.Drawing.Point(55, 93);
             this.lblEnterItemName.Name = "lblEnterItemName";
             this.lblEnterItemName.Size = new System.Drawing.Size(123, 13);
             this.lblEnterItemName.TabIndex = 14;
             this.lblEnterItemName.Text = "Enter the Item Name";
             // 
-            // AddInventoryUserControl
+            // AddInventoryUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@
             this.Controls.Add(this.lblInventoryManager);
             this.Controls.Add(this.tbxItemName);
             this.Controls.Add(this.lblEnterItemName);
-            this.Name = "AddInventoryUserControl";
+            this.Name = "AddInventoryUC";
             this.Size = new System.Drawing.Size(847, 581);
             this.ResumeLayout(false);
             this.PerformLayout();

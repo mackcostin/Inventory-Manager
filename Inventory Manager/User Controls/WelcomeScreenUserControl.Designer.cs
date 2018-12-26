@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblHomePgIntro = new System.Windows.Forms.Label();
-            this.lblHomePgHeader = new System.Windows.Forms.Label();
+            this.lblWelcomePgHeader = new System.Windows.Forms.Label();
             this.btnGetStarted = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -45,26 +45,27 @@
             this.lblHomePgIntro.TabIndex = 3;
             this.lblHomePgIntro.Text = "text";
             // 
-            // lblHomePgHeader
+            // lblWelcomePgHeader
             // 
-            this.lblHomePgHeader.AutoSize = true;
-            this.lblHomePgHeader.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHomePgHeader.Location = new System.Drawing.Point(52, 0);
-            this.lblHomePgHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblHomePgHeader.Name = "lblHomePgHeader";
-            this.lblHomePgHeader.Size = new System.Drawing.Size(155, 37);
-            this.lblHomePgHeader.TabIndex = 2;
-            this.lblHomePgHeader.Text = "Welcome";
+            this.lblWelcomePgHeader.AutoSize = true;
+            this.lblWelcomePgHeader.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomePgHeader.Location = new System.Drawing.Point(52, 0);
+            this.lblWelcomePgHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWelcomePgHeader.Name = "lblWelcomePgHeader";
+            this.lblWelcomePgHeader.Size = new System.Drawing.Size(155, 37);
+            this.lblWelcomePgHeader.TabIndex = 2;
+            this.lblWelcomePgHeader.Text = "Welcome";
             // 
             // btnGetStarted
             // 
+            this.btnGetStarted.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetStarted.Location = new System.Drawing.Point(628, 477);
             this.btnGetStarted.Name = "btnGetStarted";
             this.btnGetStarted.Size = new System.Drawing.Size(171, 74);
             this.btnGetStarted.TabIndex = 4;
             this.btnGetStarted.Text = "Get Started";
             this.btnGetStarted.UseVisualStyleBackColor = true;
-            this.btnGetStarted.Click += new System.EventHandler(this.btnGetStarted_Click);
+            this.btnGetStarted.Click += new System.EventHandler(this.btnFTSGetStarted_Click);
             // 
             // WelcomeScreenUserControl
             // 
@@ -72,9 +73,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnGetStarted);
             this.Controls.Add(this.lblHomePgIntro);
-            this.Controls.Add(this.lblHomePgHeader);
+            this.Controls.Add(this.lblWelcomePgHeader);
             this.Name = "WelcomeScreenUserControl";
-            this.Size = new System.Drawing.Size(850, 582);
+            this.Size = new System.Drawing.Size(847, 581);
             this.Load += new System.EventHandler(this.WelcomeScreenUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -84,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblHomePgIntro;
-        private System.Windows.Forms.Label lblHomePgHeader;
+        private System.Windows.Forms.Label lblWelcomePgHeader;
         private System.Windows.Forms.Button btnGetStarted;
     }
 }

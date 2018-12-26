@@ -16,6 +16,7 @@ namespace Inventory_Manager.User_Controls
 
         private AppSettings appSettings = new AppSettings();
         private HomePageUserControl homePageUserControl = new HomePageUserControl();
+        private FirstSetupUserControl firstSetupUC = new FirstSetupUserControl();
 
         public WelcomeScreenUserControl()
         {
@@ -29,11 +30,15 @@ namespace Inventory_Manager.User_Controls
 "button or click on Manage Inventory or Search Stock.";
         }
 
-        private void btnGetStarted_Click(object sender, EventArgs e)
+        private void btnFTSGetStarted_Click(object sender, EventArgs e)
         {
             appSettings.saveAppStartupSettings(true);
-            this.Parent.Controls.Add(homePageUserControl);
+            this.Parent.Controls.Add(firstSetupUC);
             this.Parent.Controls.Remove(this);
         }
+
+        #region Text Box Hint Handlers
+
+        #endregion
     }
 }
