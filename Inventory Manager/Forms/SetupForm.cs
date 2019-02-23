@@ -13,8 +13,6 @@ namespace Inventory_Manager.Forms
 {
     public partial class SetupForm : Form
     {
-        private FirstSetupUserControl firstSetupUserControl = new FirstSetupUserControl();
-
         public SetupForm()
         {
             InitializeComponent();
@@ -22,7 +20,7 @@ namespace Inventory_Manager.Forms
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            PnlSetupUCContainer.Controls.Add(firstSetupUserControl);
+            PnlSetupUCContainer.Controls.Add(new FirstSetupUserControl());
         }
 
         private void btnSetupCloseApp_Click(object sender, EventArgs e)

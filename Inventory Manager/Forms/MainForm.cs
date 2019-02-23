@@ -1,4 +1,5 @@
-﻿using Inventory_Manager.Settings;
+﻿using Inventory_Manager.Forms;
+using Inventory_Manager.Settings;
 using Inventory_Manager.User_Controls;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace Inventory_Manager
         /**
          * This Method Handles the "Close App button (Power Icon)" 
          * */
-        private void btnCloseApp_Click(object sender, EventArgs e)
+        private void BtnCloseApp_Click(object sender, EventArgs e)
         {
             DialogResult closeDialog = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo);
             if (closeDialog == DialogResult.Yes){
@@ -52,13 +53,13 @@ namespace Inventory_Manager
         #endregion
 
         #region Navigation Pane
-        private void btnManageInventory_Click(object sender, EventArgs e)
+        private void BtnManageInventory_Click(object sender, EventArgs e)
         {
             userControlPanel.Controls.Remove(homePageUserControl);
             userControlPanel.Controls.Remove(welcomeScreenUserControl);
             userControlPanel.Controls.Add(addInventoryUserControl);          
         }
-        private void btnHome_Click(object sender, EventArgs e)
+        private void BtnHome_Click(object sender, EventArgs e)
         {
             if(settings.checkIfAppUsed() == true)
             {

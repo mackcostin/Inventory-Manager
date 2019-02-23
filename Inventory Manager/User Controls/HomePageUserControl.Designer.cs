@@ -47,7 +47,7 @@
             this.tbxSvrName.Size = new System.Drawing.Size(192, 20);
             this.tbxSvrName.TabIndex = 0;
             this.tbxSvrName.Text = "Enter Server Name Here";
-            this.tbxSvrName.Click += new System.EventHandler(this.tbxSvrName_Click);
+            this.tbxSvrName.Click += new System.EventHandler(this.TbxSvrName_Click);
             // 
             // lblServerName
             // 
@@ -74,7 +74,7 @@
             this.tbxSvrUsrName.Size = new System.Drawing.Size(192, 20);
             this.tbxSvrUsrName.TabIndex = 2;
             this.tbxSvrUsrName.Text = "Enter Username Here";
-            this.tbxSvrUsrName.Click += new System.EventHandler(this.tbxSvrUsrName_Click);
+            this.tbxSvrUsrName.Click += new System.EventHandler(this.TbxSvrUsrName_Click);
             // 
             // lblSvrPassword
             // 
@@ -92,7 +92,7 @@
             this.tbxSvrPassword.Size = new System.Drawing.Size(192, 20);
             this.tbxSvrPassword.TabIndex = 4;
             this.tbxSvrPassword.Text = "Enter Password Here";
-            this.tbxSvrPassword.Click += new System.EventHandler(this.tbxSvrPassword_Click);
+            this.tbxSvrPassword.Click += new System.EventHandler(this.TbxSvrPassword_Click);
             // 
             // lblDBName
             // 

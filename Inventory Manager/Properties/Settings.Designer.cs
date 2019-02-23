@@ -81,5 +81,17 @@ namespace Inventory_Manager.Properties {
                 this["DBName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SetupCompleted {
+            get {
+                return ((bool)(this["SetupCompleted"]));
+            }
+            set {
+                this["SetupCompleted"] = value;
+            }
+        }
     }
 }

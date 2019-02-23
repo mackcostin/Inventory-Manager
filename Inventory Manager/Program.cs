@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Manager.Settings;
 
 namespace Inventory_Manager
 {
@@ -17,7 +18,14 @@ namespace Inventory_Manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SetupForm());
+            if (Properties.Settings.Default.SetupCompleted == true)
+            {
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                Application.Run(new SetupForm());
+            }
         }
     }
 }

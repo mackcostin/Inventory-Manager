@@ -85,7 +85,7 @@
             this.btnManageInventory.Text = "Manage Inventory";
             this.btnManageInventory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnManageInventory.UseVisualStyleBackColor = true;
-            this.btnManageInventory.Click += new System.EventHandler(this.btnManageInventory_Click);
+            this.btnManageInventory.Click += new System.EventHandler(this.BtnManageInventory_Click);
             // 
             // btnSearch
             // 
@@ -134,7 +134,7 @@
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            this.btnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
             // btnCloseApp
             // 
@@ -150,7 +150,7 @@
             this.btnCloseApp.TabIndex = 4;
             this.btnCloseApp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCloseApp.UseVisualStyleBackColor = true;
-            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
+            this.btnCloseApp.Click += new System.EventHandler(this.BtnCloseApp_Click);
             // 
             // MainForm
             // 

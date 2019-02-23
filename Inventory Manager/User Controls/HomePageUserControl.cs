@@ -22,7 +22,7 @@ namespace Inventory_Manager.User_Controls
         }
 
         #region Textbox Hint Handlers
-        private void tbxSvrName_Click(object sender, EventArgs e)
+        private void TbxSvrName_Click(object sender, EventArgs e)
         {
             if (tbxSvrName.Text == svrNameHintText)
             {
@@ -30,7 +30,7 @@ namespace Inventory_Manager.User_Controls
             }
         }
 
-        private void tbxSvrUsrName_Click(object sender, EventArgs e)
+        private void TbxSvrUsrName_Click(object sender, EventArgs e)
         {
             if (tbxSvrUsrName.Text == usrNameHintText)
             {
@@ -38,7 +38,7 @@ namespace Inventory_Manager.User_Controls
             }
         }
 
-        private void tbxSvrPassword_Click(object sender, EventArgs e)
+        private void TbxSvrPassword_Click(object sender, EventArgs e)
         {
             if (tbxSvrPassword.Text == passwordHintText)
             {

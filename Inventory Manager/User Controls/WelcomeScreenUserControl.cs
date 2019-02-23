@@ -32,9 +32,6 @@ namespace Inventory_Manager.User_Controls
 
         private void btnFTSGetStarted_Click(object sender, EventArgs e)
         {
-            appSettings.saveAppStartupSettings(true);
-            this.Parent.Controls.Add(firstSetupUC);
-            this.Parent.Controls.Remove(this);
         }
 
         #region Text Box Hint Handlers

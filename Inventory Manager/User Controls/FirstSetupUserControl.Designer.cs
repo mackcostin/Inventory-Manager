@@ -38,6 +38,13 @@
             this.LblFTSServerName = new System.Windows.Forms.Label();
             this.TbxFTSSvrName = new System.Windows.Forms.TextBox();
             this.BtnFTSFinish = new System.Windows.Forms.Button();
+            this.btnSkipSetup = new System.Windows.Forms.Button();
+            this.lblEnterSvrNamePrompt = new System.Windows.Forms.Label();
+            this.lblEnterSvrUsrNamePrompt = new System.Windows.Forms.Label();
+            this.lblEnterSvrPwdPrompt = new System.Windows.Forms.Label();
+            this.TbxFTSEnterDBName = new System.Windows.Forms.TextBox();
+            this.LblEnterDBName = new System.Windows.Forms.Label();
+            this.lblDBNamePrompt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstSetupDesc
@@ -73,7 +80,7 @@
             // LblFTSSvrPassword
             // 
             this.LblFTSSvrPassword.AutoSize = true;
-            this.LblFTSSvrPassword.Location = new System.Drawing.Point(692, 222);
+            this.LblFTSSvrPassword.Location = new System.Drawing.Point(692, 271);
             this.LblFTSSvrPassword.Name = "LblFTSSvrPassword";
             this.LblFTSSvrPassword.Size = new System.Drawing.Size(53, 13);
             this.LblFTSSvrPassword.TabIndex = 17;
@@ -81,17 +88,19 @@
             // 
             // TbxFTSSvrPassword
             // 
-            this.TbxFTSSvrPassword.Location = new System.Drawing.Point(624, 238);
+            this.TbxFTSSvrPassword.Location = new System.Drawing.Point(624, 287);
             this.TbxFTSSvrPassword.Name = "TbxFTSSvrPassword";
             this.TbxFTSSvrPassword.Size = new System.Drawing.Size(192, 20);
             this.TbxFTSSvrPassword.TabIndex = 16;
             this.TbxFTSSvrPassword.Text = "Enter Password Here";
             this.TbxFTSSvrPassword.Click += new System.EventHandler(this.TbxFTSSvrPassword_Click);
+            this.TbxFTSSvrPassword.TextChanged += new System.EventHandler(this.TbxFTSSvrPassword_TextChanged);
+            this.TbxFTSSvrPassword.Leave += new System.EventHandler(this.TbxFTSSvrPassword_Leave);
             // 
             // LblFTSSvrUsrName
             // 
             this.LblFTSSvrUsrName.AutoSize = true;
-            this.LblFTSSvrUsrName.Location = new System.Drawing.Point(690, 172);
+            this.LblFTSSvrUsrName.Location = new System.Drawing.Point(690, 209);
             this.LblFTSSvrUsrName.Name = "LblFTSSvrUsrName";
             this.LblFTSSvrUsrName.Size = new System.Drawing.Size(55, 13);
             this.LblFTSSvrUsrName.TabIndex = 15;
@@ -99,13 +108,14 @@
             // 
             // TbxFTSSvrUsrName
             // 
-            this.TbxFTSSvrUsrName.Location = new System.Drawing.Point(624, 188);
+            this.TbxFTSSvrUsrName.Location = new System.Drawing.Point(624, 225);
             this.TbxFTSSvrUsrName.Name = "TbxFTSSvrUsrName";
             this.TbxFTSSvrUsrName.Size = new System.Drawing.Size(192, 20);
             this.TbxFTSSvrUsrName.TabIndex = 14;
             this.TbxFTSSvrUsrName.Text = "Enter Username Here";
             this.TbxFTSSvrUsrName.Click += new System.EventHandler(this.TbxFTSSvrUsrName_Click);
             this.TbxFTSSvrUsrName.TextChanged += new System.EventHandler(this.TbxFTSSvrUsrName_TextChanged);
+            this.TbxFTSSvrUsrName.Leave += new System.EventHandler(this.TbxFTSSvrUsrName_Leave);
             // 
             // LblFTSServerName
             // 
@@ -124,22 +134,100 @@
             this.TbxFTSSvrName.TabIndex = 12;
             this.TbxFTSSvrName.Text = "Enter Server Name Here";
             this.TbxFTSSvrName.Click += new System.EventHandler(this.TbxFTSSvrName_Click);
+            this.TbxFTSSvrName.TextChanged += new System.EventHandler(this.TbxFTSSvrName_TextChanged);
+            this.TbxFTSSvrName.Leave += new System.EventHandler(this.TbxFTSSvrName_Leave);
             // 
             // BtnFTSFinish
             // 
             this.BtnFTSFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFTSFinish.Location = new System.Drawing.Point(635, 326);
+            this.BtnFTSFinish.Location = new System.Drawing.Point(624, 337);
             this.BtnFTSFinish.Name = "BtnFTSFinish";
-            this.BtnFTSFinish.Size = new System.Drawing.Size(171, 74);
+            this.BtnFTSFinish.Size = new System.Drawing.Size(192, 74);
             this.BtnFTSFinish.TabIndex = 19;
             this.BtnFTSFinish.Text = "Finish";
             this.BtnFTSFinish.UseVisualStyleBackColor = true;
             this.BtnFTSFinish.Click += new System.EventHandler(this.BtnFTSFinish_Click);
             // 
+            // btnSkipSetup
+            // 
+            this.btnSkipSetup.Location = new System.Drawing.Point(921, 497);
+            this.btnSkipSetup.Name = "btnSkipSetup";
+            this.btnSkipSetup.Size = new System.Drawing.Size(93, 25);
+            this.btnSkipSetup.TabIndex = 20;
+            this.btnSkipSetup.Text = "Skip this step";
+            this.btnSkipSetup.UseVisualStyleBackColor = true;
+            this.btnSkipSetup.Click += new System.EventHandler(this.BtnSkipSetup_Click);
+            // 
+            // lblEnterSvrNamePrompt
+            // 
+            this.lblEnterSvrNamePrompt.AutoSize = true;
+            this.lblEnterSvrNamePrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterSvrNamePrompt.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterSvrNamePrompt.Location = new System.Drawing.Point(627, 139);
+            this.lblEnterSvrNamePrompt.Name = "lblEnterSvrNamePrompt";
+            this.lblEnterSvrNamePrompt.Size = new System.Drawing.Size(0, 13);
+            this.lblEnterSvrNamePrompt.TabIndex = 21;
+            // 
+            // lblEnterSvrUsrNamePrompt
+            // 
+            this.lblEnterSvrUsrNamePrompt.AutoSize = true;
+            this.lblEnterSvrUsrNamePrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterSvrUsrNamePrompt.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterSvrUsrNamePrompt.Location = new System.Drawing.Point(627, 249);
+            this.lblEnterSvrUsrNamePrompt.Name = "lblEnterSvrUsrNamePrompt";
+            this.lblEnterSvrUsrNamePrompt.Size = new System.Drawing.Size(0, 13);
+            this.lblEnterSvrUsrNamePrompt.TabIndex = 22;
+            // 
+            // lblEnterSvrPwdPrompt
+            // 
+            this.lblEnterSvrPwdPrompt.AutoSize = true;
+            this.lblEnterSvrPwdPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnterSvrPwdPrompt.ForeColor = System.Drawing.Color.Red;
+            this.lblEnterSvrPwdPrompt.Location = new System.Drawing.Point(627, 350);
+            this.lblEnterSvrPwdPrompt.Name = "lblEnterSvrPwdPrompt";
+            this.lblEnterSvrPwdPrompt.Size = new System.Drawing.Size(0, 13);
+            this.lblEnterSvrPwdPrompt.TabIndex = 23;
+            // 
+            // TbxFTSEnterDBName
+            // 
+            this.TbxFTSEnterDBName.Location = new System.Drawing.Point(624, 168);
+            this.TbxFTSEnterDBName.Name = "TbxFTSEnterDBName";
+            this.TbxFTSEnterDBName.Size = new System.Drawing.Size(192, 20);
+            this.TbxFTSEnterDBName.TabIndex = 24;
+            this.TbxFTSEnterDBName.Text = "Enter Database Name Here";
+            this.TbxFTSEnterDBName.Click += new System.EventHandler(this.TbxEnterDBName_Click);
+            this.TbxFTSEnterDBName.Leave += new System.EventHandler(this.TbxFTSEnterDBName_Leave);
+            // 
+            // LblEnterDBName
+            // 
+            this.LblEnterDBName.AutoSize = true;
+            this.LblEnterDBName.Location = new System.Drawing.Point(644, 152);
+            this.LblEnterDBName.Name = "LblEnterDBName";
+            this.LblEnterDBName.Size = new System.Drawing.Size(155, 13);
+            this.LblEnterDBName.TabIndex = 25;
+            this.LblEnterDBName.Text = "Enter a name for your database";
+            // 
+            // lblDBNamePrompt
+            // 
+            this.lblDBNamePrompt.AutoSize = true;
+            this.lblDBNamePrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBNamePrompt.ForeColor = System.Drawing.Color.Red;
+            this.lblDBNamePrompt.Location = new System.Drawing.Point(627, 191);
+            this.lblDBNamePrompt.Name = "lblDBNamePrompt";
+            this.lblDBNamePrompt.Size = new System.Drawing.Size(0, 13);
+            this.lblDBNamePrompt.TabIndex = 26;
+            // 
             // FirstSetupUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblDBNamePrompt);
+            this.Controls.Add(this.LblEnterDBName);
+            this.Controls.Add(this.TbxFTSEnterDBName);
+            this.Controls.Add(this.lblEnterSvrPwdPrompt);
+            this.Controls.Add(this.lblEnterSvrUsrNamePrompt);
+            this.Controls.Add(this.lblEnterSvrNamePrompt);
+            this.Controls.Add(this.btnSkipSetup);
             this.Controls.Add(this.BtnFTSFinish);
             this.Controls.Add(this.BtnFTSTestConnection);
             this.Controls.Add(this.LblFTSSvrPassword);
@@ -170,5 +258,12 @@
         private System.Windows.Forms.Label LblFTSServerName;
         private System.Windows.Forms.TextBox TbxFTSSvrName;
         private System.Windows.Forms.Button BtnFTSFinish;
+        private System.Windows.Forms.Button btnSkipSetup;
+        private System.Windows.Forms.Label lblEnterSvrNamePrompt;
+        private System.Windows.Forms.Label lblEnterSvrUsrNamePrompt;
+        private System.Windows.Forms.Label lblEnterSvrPwdPrompt;
+        private System.Windows.Forms.TextBox TbxFTSEnterDBName;
+        private System.Windows.Forms.Label LblEnterDBName;
+        private System.Windows.Forms.Label lblDBNamePrompt;
     }
 }

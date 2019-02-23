@@ -11,7 +11,11 @@ namespace Inventory_Manager.Data_Access
 {
     class DBCreate
     {
-        public void CreateDB(string svrName, string username, string password)
+        /**
+         * This method is intended for use in the First Setup UC. Creates the database needed for the software to run. SQL Server must exist
+         * for this to work.
+         * */
+        public bool CreateDB(string svrName, string dbName, string username, string password)
         {
             string createDBScript;
             string createTablesScript;
@@ -21,8 +25,8 @@ namespace Inventory_Manager.Data_Access
                 "pwd=" + password + ";" +
                 "database=master");
 
-            createDBScript = "CREATE DATABASE Business_Manager";
-            createTablesScript = "USE Business_Manager " +
+            createDBScript = "CREATE DATABASE " + dbName;
+            createTablesScript = "USE  " + dbName + " " +
                 "CREATE TABLE dbo.InventoryItem(" +
                 "[InventoryID] INT NOT NULL PRIMARY KEY," +
                 "[ItemName] VARCHAR(255) NOT NULL," +
@@ -36,7 +40,9 @@ namespace Inventory_Manager.Data_Access
                 sqlConnection.Open();
                 execCreateDBScript.ExecuteNonQuery();
                 execCreateTablesScript.ExecuteNonQuery();
-                MessageBox.Show("Database is Created Successfully", "Creation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DialogResult dresult = MessageBox.Show("Database Created Successfully", "Creation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
             catch (System.Exception ex)
             {
@@ -49,6 +55,7 @@ namespace Inventory_Manager.Data_Access
                     sqlConnection.Close();
                 }
             }
+            return false;
         }
     }
 }
