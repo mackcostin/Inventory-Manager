@@ -44,9 +44,19 @@ namespace Inventory_Manager.Data_Access
                 DialogResult dresult = MessageBox.Show("Database Created Successfully", "Creation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
-            catch (System.Exception ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.ToString(), "MyProgram", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                switch (ex.Number)
+                {
+                    case 18456:
+                        MessageBox.Show("Error # 18456: Invalid connection credentials.");
+                    break;
+                    case 5170:
+                        MessageBox.Show("SQL Error #5170: Database with this name already exists.");
+                    break;
+                }
+                //ENABLE THIS FOR DEBUGGING SQL SERVER CONNECTION
+                // MessageBox.Show(ex.ToString(), "MyProgram", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {

@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using Inventory_Manager.Data_Access;
-using Inventory_Manager.Forms;
+using Inventory_Manager.Settings;
 
 namespace Inventory_Manager.User_Controls
 {
-    public partial class FirstSetupUserControl : UserControl
+    public partial class UCFirstSetup : UserControl
     {
         private const string svrNameHintText = "Enter Server Name Here";
         private const string dbNameHintText = "Enter Database Name Here";
@@ -26,7 +19,7 @@ namespace Inventory_Manager.User_Controls
         private DBCreate createDB = new DBCreate();
 
         #region Initialize UC
-        public FirstSetupUserControl()
+        public UCFirstSetup()
         {
             InitializeComponent();
         }
@@ -52,10 +45,13 @@ namespace Inventory_Manager.User_Controls
         {
             if(createDB.CreateDB(TbxFTSSvrName.Text,TbxFTSEnterDBName.Text, TbxFTSSvrUsrName.Text, TbxFTSSvrPassword.Text) == true)
             {
-                Properties.Settings.Default.DBServerName = TbxFTSSvrName.Text;
-                Properties.Settings.Default.DBUsername = TbxFTSSvrUsrName.Text;
-                Properties.Settings.Default.DBPassword = TbxFTSSvrPassword.Text;
-                Properties.Settings.Default.SetupCompleted = true;
+                AppSettings.SaveDBSettings(
+                    TbxFTSSvrName.Text,
+                    TbxFTSEnterDBName.Text,
+                    TbxFTSSvrUsrName.Text,
+                    TbxFTSSvrPassword.Text);
+                AppSettings.SaveStartupSettings(true);
+
                 ((Form)this.TopLevelControl).Close();
                 Thread thread = new Thread(OpenMainForm);
                 thread.SetApartmentState(ApartmentState.STA);
@@ -104,21 +100,21 @@ namespace Inventory_Manager.User_Controls
                 }
             }
 
-            private void TbxEnterDBName_Click(object sender, EventArgs e)
+        private void TbxEnterDBName_Click(object sender, EventArgs e)
+        {
+            if (TbxFTSEnterDBName.Text == dbNameHintText)
             {
-                if (TbxFTSEnterDBName.Text == dbNameHintText)
-                {
-                    TbxFTSEnterDBName.Text = null;
-                }
+                TbxFTSEnterDBName.Text = null;
             }
+        }
 
-            private void TbxFTSSvrUsrName_Click(object sender, EventArgs e)
+        private void TbxFTSSvrUsrName_Click(object sender, EventArgs e)
+        {
+            if (TbxFTSSvrUsrName.Text == usrNameHintText)
             {
-                if (TbxFTSSvrUsrName.Text == usrNameHintText)
-                {
-                    TbxFTSSvrUsrName.Text = null;
-                }
+                TbxFTSSvrUsrName.Text = null;
             }
+        }
 
             private void TbxFTSSvrPassword_Click(object sender, EventArgs e)
             {
@@ -130,38 +126,38 @@ namespace Inventory_Manager.User_Controls
             }
             #endregion
 
-            #region Text Box Leave Event Handlers
-            private void TbxFTSSvrName_Leave(object sender, EventArgs e)
+        #region Text Box Leave Event Handlers
+        private void TbxFTSSvrName_Leave(object sender, EventArgs e)
+        {
+            if (TbxFTSSvrName == null || TbxFTSSvrName.Text == "")
             {
-                if (TbxFTSSvrName == null || TbxFTSSvrName.Text == "")
-                {
-                    TbxFTSSvrName.Text = svrNameHintText;
-                }
+                TbxFTSSvrName.Text = svrNameHintText;
             }
+        }
 
-            private void TbxFTSEnterDBName_Leave(object sender, EventArgs e)
+        private void TbxFTSEnterDBName_Leave(object sender, EventArgs e)
+        {
+            if (TbxFTSEnterDBName == null || TbxFTSEnterDBName.Text == "")
             {
-                if (TbxFTSEnterDBName == null || TbxFTSEnterDBName.Text == "")
-                {
-                    TbxFTSEnterDBName.Text = dbNameHintText;
-                }
+                TbxFTSEnterDBName.Text = dbNameHintText;
             }
+        }
 
-            private void TbxFTSSvrUsrName_Leave(object sender, EventArgs e)
+        private void TbxFTSSvrUsrName_Leave(object sender, EventArgs e)
+        {
+            if (TbxFTSSvrUsrName == null || TbxFTSSvrUsrName.Text == "")
             {
-                if (TbxFTSSvrUsrName == null || TbxFTSSvrUsrName.Text == "")
-                {
-                    TbxFTSSvrUsrName.Text = usrNameHintText;
-                }
+                TbxFTSSvrUsrName.Text = usrNameHintText;
             }
+        }
 
-            private void TbxFTSSvrPassword_Leave(object sender, EventArgs e)
+        private void TbxFTSSvrPassword_Leave(object sender, EventArgs e)
+        {
+            if (TbxFTSSvrPassword == null || TbxFTSSvrPassword.Text == "")
             {
-                if (TbxFTSSvrPassword == null || TbxFTSSvrPassword.Text == "")
-                {
-                    TbxFTSSvrPassword.Text = usrNameHintText;
-                }
+                TbxFTSSvrPassword.Text = usrNameHintText;
             }
+        }
         #endregion
         #endregion
 

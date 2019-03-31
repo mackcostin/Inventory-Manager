@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Manager.User_Controls
 {
-    partial class AddInventoryUC
+    partial class UCAddInventory
     {
         /// <summary> 
         /// Required designer variable.

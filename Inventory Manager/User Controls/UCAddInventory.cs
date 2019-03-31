@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Inventory_Manager.User_Controls
 {
-    public partial class AddInventoryUC : UserControl
+    public partial class UCAddInventory : UserControl
     {
         #region UC Variables
         private const string itemPriceHintText = "Enter item price here";
@@ -23,7 +23,7 @@ namespace Inventory_Manager.User_Controls
         private HashSet<InventoryItem> hashSet = new HashSet<InventoryItem>();
         #endregion
 
-        public AddInventoryUC()
+        public UCAddInventory()
         {
             InitializeComponent();
         }

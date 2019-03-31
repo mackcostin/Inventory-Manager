@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Manager.User_Controls
 {
-    partial class HomePageUserControl
+    partial class UCHomePage
     {
         /// <summary> 
         /// Required designer variable.

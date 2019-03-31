@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.menuDock = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.userControlPanel = new System.Windows.Forms.Panel();
             this.btnManageInventory = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.userControlPanel = new System.Windows.Forms.Panel();
             this.btnCloseApp = new System.Windows.Forms.Button();
             this.menuDock.SuspendLayout();
             this.SuspendLayout();
@@ -53,22 +53,6 @@
             this.menuDock.Name = "menuDock";
             this.menuDock.Size = new System.Drawing.Size(203, 652);
             this.menuDock.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(203, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(847, 20);
-            this.panel2.TabIndex = 3;
-            // 
-            // userControlPanel
-            // 
-            this.userControlPanel.Location = new System.Drawing.Point(203, 71);
-            this.userControlPanel.Name = "userControlPanel";
-            this.userControlPanel.Size = new System.Drawing.Size(847, 581);
-            this.userControlPanel.TabIndex = 5;
             // 
             // btnManageInventory
             // 
@@ -118,6 +102,7 @@
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
             // 
             // btnHome
             // 
@@ -135,6 +120,22 @@
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.BtnHome_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(203, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(847, 20);
+            this.panel2.TabIndex = 3;
+            // 
+            // userControlPanel
+            // 
+            this.userControlPanel.Location = new System.Drawing.Point(203, 71);
+            this.userControlPanel.Name = "userControlPanel";
+            this.userControlPanel.Size = new System.Drawing.Size(847, 581);
+            this.userControlPanel.TabIndex = 5;
             // 
             // btnCloseApp
             // 

@@ -80,31 +80,37 @@
       <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\AppSettings.cs" />
-    <Compile Include="User Controls\AddInventoryUC.cs">
+    <Compile Include="User Controls\UCAddInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\AddInventoryUC.Designer.cs">
-      <DependentUpon>AddInventoryUC.cs</DependentUpon>
+    <Compile Include="User Controls\UCAddInventory.Designer.cs">
+      <DependentUpon>UCAddInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User Controls\FirstSetupUserControl.cs">
+    <Compile Include="User Controls\UCFirstSetup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\FirstSetupUserControl.Designer.cs">
-      <DependentUpon>FirstSetupUserControl.cs</DependentUpon>
+    <Compile Include="User Controls\UCFirstSetup.Designer.cs">
+      <DependentUpon>UCFirstSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\HomePageUserControl.cs">
+    <Compile Include="User Controls\UCHomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\HomePageUserControl.Designer.cs">
-      <DependentUpon>HomePageUserControl.cs</DependentUpon>
+    <Compile Include="User Controls\UCHomePage.Designer.cs">
+      <DependentUpon>UCHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\WelcomeScreenUserControl.cs">
+    <Compile Include="User Controls\UCSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\WelcomeScreenUserControl.Designer.cs">
-      <DependentUpon>WelcomeScreenUserControl.cs</DependentUpon>
+    <Compile Include="User Controls\UCSettings.Designer.cs">
+      <DependentUpon>UCSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\UCWelcomeScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\UCWelcomeScreen.Designer.cs">
+      <DependentUpon>UCWelcomeScreen.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -112,8 +118,8 @@
     <EmbeddedResource Include="Forms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\AddInventoryUC.resx">
-      <DependentUpon>AddInventoryUC.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\UCAddInventory.resx">
+      <DependentUpon>UCAddInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -125,14 +131,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="User Controls\FirstSetupUserControl.resx">
-      <DependentUpon>FirstSetupUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\UCFirstSetup.resx">
+      <DependentUpon>UCFirstSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\HomePageUserControl.resx">
-      <DependentUpon>HomePageUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\UCHomePage.resx">
+      <DependentUpon>UCHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\WelcomeScreenUserControl.resx">
-      <DependentUpon>WelcomeScreenUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\UCSettings.resx">
+      <DependentUpon>UCSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UCWelcomeScreen.resx">
+      <DependentUpon>UCWelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

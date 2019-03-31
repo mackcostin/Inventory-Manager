@@ -16,10 +16,10 @@ namespace Inventory_Manager
     public partial class MainForm : Form
     {
         #region Variables
-        private WelcomeScreenUserControl welcomeScreenUserControl = new WelcomeScreenUserControl();
-        private AddInventoryUC addInventoryUserControl = new AddInventoryUC();
-        private HomePageUserControl homePageUserControl = new HomePageUserControl();
-        private AppSettings settings = new AppSettings();
+        private UCWelcomeScreen welcomeScreenUserControl = new UCWelcomeScreen();
+        private UCAddInventory addInventoryUserControl = new UCAddInventory();
+        private UCHomePage homePageUserControl = new UCHomePage();
+        private UCSettings settingsUC;
         #endregion
 
         #region Event Handlers
@@ -30,11 +30,11 @@ namespace Inventory_Manager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (settings.checkIfAppUsed() == true)
+            if (AppSettings.CheckIfAppUsed() == true)
             {
                 userControlPanel.Controls.Add(homePageUserControl);
             }
-            else if(settings.checkIfAppUsed() == false)
+            else if(AppSettings.CheckIfAppUsed() == false)
             {
                 userControlPanel.Controls.Add(welcomeScreenUserControl);
             }
@@ -55,24 +55,28 @@ namespace Inventory_Manager
         #region Navigation Pane
         private void BtnManageInventory_Click(object sender, EventArgs e)
         {
-            userControlPanel.Controls.Remove(homePageUserControl);
-            userControlPanel.Controls.Remove(welcomeScreenUserControl);
+            userControlPanel.Controls.Clear();
             userControlPanel.Controls.Add(addInventoryUserControl);          
         }
         private void BtnHome_Click(object sender, EventArgs e)
         {
-            if(settings.checkIfAppUsed() == true)
+            if(AppSettings.CheckIfAppUsed() == true)
             {
-                userControlPanel.Controls.Remove(addInventoryUserControl);
+                userControlPanel.Controls.Clear();
                 userControlPanel.Controls.Add(homePageUserControl);
             }
             else
             {
-                userControlPanel.Controls.Remove(addInventoryUserControl);
+                userControlPanel.Controls.Clear();
                 userControlPanel.Controls.Add(welcomeScreenUserControl);
             }
-
         }
         #endregion
+
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+            userControlPanel.Controls.Clear();
+            userControlPanel.Controls.Add(settingsUC = new UCSettings());
+        }
     }
 }

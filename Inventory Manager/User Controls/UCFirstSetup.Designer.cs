@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Manager.User_Controls
 {
-    partial class FirstSetupUserControl
+    partial class UCFirstSetup
     {
         /// <summary> 
         /// Required designer variable.
@@ -217,7 +217,7 @@
             this.lblDBNamePrompt.Size = new System.Drawing.Size(0, 13);
             this.lblDBNamePrompt.TabIndex = 26;
             // 
-            // FirstSetupUserControl
+            // UCFirstSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +238,7 @@
             this.Controls.Add(this.TbxFTSSvrName);
             this.Controls.Add(this.lblHomePgHeader);
             this.Controls.Add(this.lblFirstSetupDesc);
-            this.Name = "FirstSetupUserControl";
+            this.Name = "UCFirstSetup";
             this.Size = new System.Drawing.Size(1034, 542);
             this.Load += new System.EventHandler(this.FirstSetupUserControl_Load);
             this.ResumeLayout(false);

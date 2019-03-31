@@ -18,11 +18,11 @@ namespace Inventory_Manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Properties.Settings.Default.SetupCompleted == true)
+            if (AppSettings.CheckIfAppUsed() == true)
             {
                 Application.Run(new MainForm());
             }
-            else
+            else if(AppSettings.CheckIfAppUsed() == false)
             {
                 Application.Run(new SetupForm());
             }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
-using System.Windows.Forms;
-
-namespace Inventory_Manager.Settings
+﻿namespace Inventory_Manager.Settings
 {
     class AppSettings
     {
         #region Save Settings
-        public void saveDBSettings(string serverName, string username, string password, string dbName)
+        public static void SaveDBSettings(string serverName, string dbName,string username, string password)
         {
             Properties.Settings.Default.DBServerName = serverName;
             Properties.Settings.Default.DBUsername = username;
@@ -20,7 +12,7 @@ namespace Inventory_Manager.Settings
             Properties.Settings.Default.Save();
         }
 
-        public void saveAppStartupSettings(bool previouslyStarted)
+        public static void SaveStartupSettings(bool previouslyStarted)
         {
             Properties.Settings.Default.PreviouslyStarted = previouslyStarted;
             Properties.Settings.Default.Save();
@@ -28,7 +20,7 @@ namespace Inventory_Manager.Settings
         #endregion
 
         #region Check Settings
-        public bool checkIfAppUsed()
+        public static bool CheckIfAppUsed()
         {
             if (Properties.Settings.Default.PreviouslyStarted == true)
             {
@@ -40,5 +32,16 @@ namespace Inventory_Manager.Settings
             }
         }
         #endregion
+
+        public static string [] GetDBSettings()
+        {
+            string[] DBSettings = new string[]{
+                Properties.Settings.Default.DBServerName,
+                Properties.Settings.Default.DBName,
+                Properties.Settings.Default.DBUsername,
+                Properties.Settings.Default.DBPassword
+            };
+            return DBSettings;
+        }
     }
 }

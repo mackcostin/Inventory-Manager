@@ -11,14 +11,14 @@ using Inventory_Manager.Settings;
 
 namespace Inventory_Manager.User_Controls
 {
-    public partial class WelcomeScreenUserControl : UserControl
+    public partial class UCWelcomeScreen : UserControl
     {
 
         private AppSettings appSettings = new AppSettings();
-        private HomePageUserControl homePageUserControl = new HomePageUserControl();
-        private FirstSetupUserControl firstSetupUC = new FirstSetupUserControl();
+        private UCHomePage homePageUserControl = new UCHomePage();
+        private UCFirstSetup firstSetupUC = new UCFirstSetup();
 
-        public WelcomeScreenUserControl()
+        public UCWelcomeScreen()
         {
             InitializeComponent();
         }

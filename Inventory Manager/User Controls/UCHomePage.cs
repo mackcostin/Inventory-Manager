@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Inventory_Manager.User_Controls
 {
-    public partial class HomePageUserControl : UserControl
+    public partial class UCHomePage : UserControl
     {
         private const string svrNameHintText = "Enter Server Name Here";
         private const string usrNameHintText = "Enter Username Here";
         private const string passwordHintText = "Enter Password Here";
 
-        public HomePageUserControl()
+        public UCHomePage()
         {
             InitializeComponent();
         }

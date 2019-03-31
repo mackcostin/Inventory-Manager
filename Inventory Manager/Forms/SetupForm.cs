@@ -20,7 +20,7 @@ namespace Inventory_Manager.Forms
 
         private void SetupForm_Load(object sender, EventArgs e)
         {
-            PnlSetupUCContainer.Controls.Add(new FirstSetupUserControl());
+            PnlSetupUCContainer.Controls.Add(new UCFirstSetup());
         }
 
         private void btnSetupCloseApp_Click(object sender, EventArgs e)

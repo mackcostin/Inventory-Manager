@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Manager.User_Controls
 {
-    partial class WelcomeScreenUserControl
+    partial class UCWelcomeScreen
     {
         /// <summary> 
         /// Required designer variable.
