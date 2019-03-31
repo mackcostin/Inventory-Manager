@@ -16,7 +16,6 @@ namespace Inventory_Manager.User_Controls
         private string svrDBName;
         private string svrUsrName;
         private string svrPwd;
-        private DBCreate createDB = new DBCreate();
 
         #region Initialize UC
         public UCFirstSetup()
@@ -43,7 +42,7 @@ namespace Inventory_Manager.User_Controls
         #region Button Event Handlers
         private void BtnFTSFinish_Click(object sender, EventArgs e)
         {
-            if(createDB.CreateDB(TbxFTSSvrName.Text,TbxFTSEnterDBName.Text, TbxFTSSvrUsrName.Text, TbxFTSSvrPassword.Text) == true)
+            if(DBCreate.CreateDB(TbxFTSSvrName.Text,TbxFTSEnterDBName.Text, TbxFTSSvrUsrName.Text, TbxFTSSvrPassword.Text) == true)
             {
                 AppSettings.SaveDBSettings(
                     TbxFTSSvrName.Text,

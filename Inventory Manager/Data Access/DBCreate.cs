@@ -15,7 +15,7 @@ namespace Inventory_Manager.Data_Access
          * This method is intended for use in the First Setup UC. Creates the database needed for the software to run. SQL Server must exist
          * for this to work.
          * */
-        public bool CreateDB(string svrName, string dbName, string username, string password)
+        public static bool CreateDB(string svrName, string dbName, string username, string password)
         {
             string createDBScript;
             string createTablesScript;

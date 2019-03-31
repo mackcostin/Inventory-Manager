@@ -33,6 +33,16 @@
         }
         #endregion
 
+        /// <summary>
+        /// Returns Database connection settings.
+        /// 
+        /// 0 - Server Name
+        /// 1 - Database Name
+        /// 2 - User Name
+        /// 3 - Password
+        /// 
+        /// </summary>
+        /// <returns>string[]</returns>
         public static string [] GetDBSettings()
         {
             string[] DBSettings = new string[]{

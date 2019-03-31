@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Access\DACInventoryItem.cs" />
     <Compile Include="Data Access\DBConnect.cs" />
     <Compile Include="Data Access\DBCreate.cs" />
     <Compile Include="Forms\MainForm.cs">

@@ -91,7 +91,7 @@
             this.TbxFTSSvrPassword.Location = new System.Drawing.Point(624, 287);
             this.TbxFTSSvrPassword.Name = "TbxFTSSvrPassword";
             this.TbxFTSSvrPassword.Size = new System.Drawing.Size(192, 20);
-            this.TbxFTSSvrPassword.TabIndex = 16;
+            this.TbxFTSSvrPassword.TabIndex = 3;
             this.TbxFTSSvrPassword.Text = "Enter Password Here";
             this.TbxFTSSvrPassword.Click += new System.EventHandler(this.TbxFTSSvrPassword_Click);
             this.TbxFTSSvrPassword.TextChanged += new System.EventHandler(this.TbxFTSSvrPassword_TextChanged);
@@ -111,7 +111,7 @@
             this.TbxFTSSvrUsrName.Location = new System.Drawing.Point(624, 225);
             this.TbxFTSSvrUsrName.Name = "TbxFTSSvrUsrName";
             this.TbxFTSSvrUsrName.Size = new System.Drawing.Size(192, 20);
-            this.TbxFTSSvrUsrName.TabIndex = 14;
+            this.TbxFTSSvrUsrName.TabIndex = 2;
             this.TbxFTSSvrUsrName.Text = "Enter Username Here";
             this.TbxFTSSvrUsrName.Click += new System.EventHandler(this.TbxFTSSvrUsrName_Click);
             this.TbxFTSSvrUsrName.TextChanged += new System.EventHandler(this.TbxFTSSvrUsrName_TextChanged);
@@ -131,7 +131,7 @@
             this.TbxFTSSvrName.Location = new System.Drawing.Point(624, 92);
             this.TbxFTSSvrName.Name = "TbxFTSSvrName";
             this.TbxFTSSvrName.Size = new System.Drawing.Size(192, 20);
-            this.TbxFTSSvrName.TabIndex = 12;
+            this.TbxFTSSvrName.TabIndex = 0;
             this.TbxFTSSvrName.Text = "Enter Server Name Here";
             this.TbxFTSSvrName.Click += new System.EventHandler(this.TbxFTSSvrName_Click);
             this.TbxFTSSvrName.TextChanged += new System.EventHandler(this.TbxFTSSvrName_TextChanged);
@@ -143,7 +143,7 @@
             this.BtnFTSFinish.Location = new System.Drawing.Point(624, 337);
             this.BtnFTSFinish.Name = "BtnFTSFinish";
             this.BtnFTSFinish.Size = new System.Drawing.Size(192, 74);
-            this.BtnFTSFinish.TabIndex = 19;
+            this.BtnFTSFinish.TabIndex = 4;
             this.BtnFTSFinish.Text = "Finish";
             this.BtnFTSFinish.UseVisualStyleBackColor = true;
             this.BtnFTSFinish.Click += new System.EventHandler(this.BtnFTSFinish_Click);
@@ -153,7 +153,7 @@
             this.btnSkipSetup.Location = new System.Drawing.Point(921, 497);
             this.btnSkipSetup.Name = "btnSkipSetup";
             this.btnSkipSetup.Size = new System.Drawing.Size(93, 25);
-            this.btnSkipSetup.TabIndex = 20;
+            this.btnSkipSetup.TabIndex = 5;
             this.btnSkipSetup.Text = "Skip this step";
             this.btnSkipSetup.UseVisualStyleBackColor = true;
             this.btnSkipSetup.Click += new System.EventHandler(this.BtnSkipSetup_Click);
@@ -193,7 +193,7 @@
             this.TbxFTSEnterDBName.Location = new System.Drawing.Point(624, 168);
             this.TbxFTSEnterDBName.Name = "TbxFTSEnterDBName";
             this.TbxFTSEnterDBName.Size = new System.Drawing.Size(192, 20);
-            this.TbxFTSEnterDBName.TabIndex = 24;
+            this.TbxFTSEnterDBName.TabIndex = 1;
             this.TbxFTSEnterDBName.Text = "Enter Database Name Here";
             this.TbxFTSEnterDBName.Click += new System.EventHandler(this.TbxEnterDBName_Click);
             this.TbxFTSEnterDBName.Leave += new System.EventHandler(this.TbxFTSEnterDBName_Leave);

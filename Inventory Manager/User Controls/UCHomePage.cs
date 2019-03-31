@@ -7,45 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Manager.Settings;
 
 namespace Inventory_Manager.User_Controls
 {
     public partial class UCHomePage : UserControl
     {
-        private const string svrNameHintText = "Enter Server Name Here";
-        private const string usrNameHintText = "Enter Username Here";
-        private const string passwordHintText = "Enter Password Here";
-
         public UCHomePage()
         {
             InitializeComponent();
         }
 
-        #region Textbox Hint Handlers
-        private void TbxSvrName_Click(object sender, EventArgs e)
+        private void UCHomePage_Load(object sender, EventArgs e)
         {
-            if (tbxSvrName.Text == svrNameHintText)
-            {
-                tbxSvrName.Text = null;
-            }
+            LblSvrName.Text = "Server: " + AppSettings.GetDBSettings()[0];
+            LblDBName.Text = "Database:  " + AppSettings.GetDBSettings()[1];
+            LblUsrName.Text = "User: " + AppSettings.GetDBSettings()[2];
         }
-
-        private void TbxSvrUsrName_Click(object sender, EventArgs e)
-        {
-            if (tbxSvrUsrName.Text == usrNameHintText)
-            {
-                tbxSvrUsrName.Text = null;
-            }
-        }
-
-        private void TbxSvrPassword_Click(object sender, EventArgs e)
-        {
-            if (tbxSvrPassword.Text == passwordHintText)
-            {
-                tbxSvrPassword.Text = null;
-            }
-        }
-        #endregion
-
     }
 }

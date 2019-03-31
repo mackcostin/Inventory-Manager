@@ -28,97 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbxSvrName = new System.Windows.Forms.TextBox();
-            this.lblServerName = new System.Windows.Forms.Label();
-            this.lblSvrUsrName = new System.Windows.Forms.Label();
-            this.tbxSvrUsrName = new System.Windows.Forms.TextBox();
-            this.lblSvrPassword = new System.Windows.Forms.Label();
-            this.tbxSvrPassword = new System.Windows.Forms.TextBox();
-            this.lblDBName = new System.Windows.Forms.Label();
-            this.cmbDatabases = new System.Windows.Forms.ComboBox();
-            this.btnTestConnection = new System.Windows.Forms.Button();
             this.lblHomePgHeader = new System.Windows.Forms.Label();
+            this.LblSvrName = new System.Windows.Forms.Label();
+            this.LblUsrName = new System.Windows.Forms.Label();
+            this.LblDBName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // tbxSvrName
-            // 
-            this.tbxSvrName.Location = new System.Drawing.Point(338, 141);
-            this.tbxSvrName.Name = "tbxSvrName";
-            this.tbxSvrName.Size = new System.Drawing.Size(192, 20);
-            this.tbxSvrName.TabIndex = 0;
-            this.tbxSvrName.Text = "Enter Server Name Here";
-            this.tbxSvrName.Click += new System.EventHandler(this.TbxSvrName_Click);
-            // 
-            // lblServerName
-            // 
-            this.lblServerName.AutoSize = true;
-            this.lblServerName.Location = new System.Drawing.Point(417, 125);
-            this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(38, 13);
-            this.lblServerName.TabIndex = 1;
-            this.lblServerName.Text = "Server";
-            // 
-            // lblSvrUsrName
-            // 
-            this.lblSvrUsrName.AutoSize = true;
-            this.lblSvrUsrName.Location = new System.Drawing.Point(405, 221);
-            this.lblSvrUsrName.Name = "lblSvrUsrName";
-            this.lblSvrUsrName.Size = new System.Drawing.Size(55, 13);
-            this.lblSvrUsrName.TabIndex = 3;
-            this.lblSvrUsrName.Text = "Username";
-            // 
-            // tbxSvrUsrName
-            // 
-            this.tbxSvrUsrName.Location = new System.Drawing.Point(338, 237);
-            this.tbxSvrUsrName.Name = "tbxSvrUsrName";
-            this.tbxSvrUsrName.Size = new System.Drawing.Size(192, 20);
-            this.tbxSvrUsrName.TabIndex = 2;
-            this.tbxSvrUsrName.Text = "Enter Username Here";
-            this.tbxSvrUsrName.Click += new System.EventHandler(this.TbxSvrUsrName_Click);
-            // 
-            // lblSvrPassword
-            // 
-            this.lblSvrPassword.AutoSize = true;
-            this.lblSvrPassword.Location = new System.Drawing.Point(407, 271);
-            this.lblSvrPassword.Name = "lblSvrPassword";
-            this.lblSvrPassword.Size = new System.Drawing.Size(53, 13);
-            this.lblSvrPassword.TabIndex = 5;
-            this.lblSvrPassword.Text = "Password";
-            // 
-            // tbxSvrPassword
-            // 
-            this.tbxSvrPassword.Location = new System.Drawing.Point(338, 287);
-            this.tbxSvrPassword.Name = "tbxSvrPassword";
-            this.tbxSvrPassword.Size = new System.Drawing.Size(192, 20);
-            this.tbxSvrPassword.TabIndex = 4;
-            this.tbxSvrPassword.Text = "Enter Password Here";
-            this.tbxSvrPassword.Click += new System.EventHandler(this.TbxSvrPassword_Click);
-            // 
-            // lblDBName
-            // 
-            this.lblDBName.AutoSize = true;
-            this.lblDBName.Location = new System.Drawing.Point(405, 320);
-            this.lblDBName.Name = "lblDBName";
-            this.lblDBName.Size = new System.Drawing.Size(53, 13);
-            this.lblDBName.TabIndex = 7;
-            this.lblDBName.Text = "Database";
-            // 
-            // cmbDatabases
-            // 
-            this.cmbDatabases.FormattingEnabled = true;
-            this.cmbDatabases.Location = new System.Drawing.Point(338, 336);
-            this.cmbDatabases.Name = "cmbDatabases";
-            this.cmbDatabases.Size = new System.Drawing.Size(192, 21);
-            this.cmbDatabases.TabIndex = 8;
-            // 
-            // btnTestConnection
-            // 
-            this.btnTestConnection.Location = new System.Drawing.Point(338, 162);
-            this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(192, 23);
-            this.btnTestConnection.TabIndex = 9;
-            this.btnTestConnection.Text = "Test Connection";
-            this.btnTestConnection.UseVisualStyleBackColor = true;
             // 
             // lblHomePgHeader
             // 
@@ -131,38 +45,56 @@
             this.lblHomePgHeader.TabIndex = 10;
             this.lblHomePgHeader.Text = "Home";
             // 
-            // HomePageUserControl
+            // LblSvrName
+            // 
+            this.LblSvrName.AutoSize = true;
+            this.LblSvrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSvrName.Location = new System.Drawing.Point(710, 72);
+            this.LblSvrName.Name = "LblSvrName";
+            this.LblSvrName.Size = new System.Drawing.Size(75, 13);
+            this.LblSvrName.TabIndex = 11;
+            this.LblSvrName.Text = "LblSvrName";
+            // 
+            // LblUsrName
+            // 
+            this.LblUsrName.AutoSize = true;
+            this.LblUsrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsrName.Location = new System.Drawing.Point(710, 104);
+            this.LblUsrName.Name = "LblUsrName";
+            this.LblUsrName.Size = new System.Drawing.Size(75, 13);
+            this.LblUsrName.TabIndex = 13;
+            this.LblUsrName.Text = "LblUsrName";
+            // 
+            // LblDBName
+            // 
+            this.LblDBName.AutoSize = true;
+            this.LblDBName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDBName.Location = new System.Drawing.Point(710, 88);
+            this.LblDBName.Name = "LblDBName";
+            this.LblDBName.Size = new System.Drawing.Size(73, 13);
+            this.LblDBName.TabIndex = 14;
+            this.LblDBName.Text = "LblDBName";
+            // 
+            // UCHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LblDBName);
+            this.Controls.Add(this.LblUsrName);
+            this.Controls.Add(this.LblSvrName);
             this.Controls.Add(this.lblHomePgHeader);
-            this.Controls.Add(this.btnTestConnection);
-            this.Controls.Add(this.cmbDatabases);
-            this.Controls.Add(this.lblDBName);
-            this.Controls.Add(this.lblSvrPassword);
-            this.Controls.Add(this.tbxSvrPassword);
-            this.Controls.Add(this.lblSvrUsrName);
-            this.Controls.Add(this.tbxSvrUsrName);
-            this.Controls.Add(this.lblServerName);
-            this.Controls.Add(this.tbxSvrName);
-            this.Name = "HomePageUserControl";
+            this.Name = "UCHomePage";
             this.Size = new System.Drawing.Size(847, 581);
+            this.Load += new System.EventHandler(this.UCHomePage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbxSvrName;
-        private System.Windows.Forms.Label lblServerName;
-        private System.Windows.Forms.Label lblSvrUsrName;
-        private System.Windows.Forms.TextBox tbxSvrUsrName;
-        private System.Windows.Forms.Label lblSvrPassword;
-        private System.Windows.Forms.TextBox tbxSvrPassword;
-        private System.Windows.Forms.Label lblDBName;
-        private System.Windows.Forms.ComboBox cmbDatabases;
-        private System.Windows.Forms.Button btnTestConnection;
         private System.Windows.Forms.Label lblHomePgHeader;
+        private System.Windows.Forms.Label LblSvrName;
+        private System.Windows.Forms.Label LblUsrName;
+        private System.Windows.Forms.Label LblDBName;
     }
 }
