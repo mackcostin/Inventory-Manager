@@ -20,7 +20,7 @@ namespace Inventory_Manager
             Application.SetCompatibleTextRenderingDefault(false);
             if (AppSettings.CheckIfAppUsed() == true)
             {
-                Application.Run(new MainForm());
+                Application.Run(new FormLogin());
             }
             else if(AppSettings.CheckIfAppUsed() == false)
             {
