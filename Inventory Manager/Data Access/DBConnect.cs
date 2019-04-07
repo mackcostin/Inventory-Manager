@@ -12,6 +12,7 @@ namespace Inventory_Manager.Data_Access
     class DBConnect
     {
         private static SqlConnection sqlConnection;
+        public static string ErrorMessage { get; private set;}
 
         /// <summary>
         /// Connects to a database using the stored credentials in app settings.
@@ -28,8 +29,22 @@ namespace Inventory_Manager.Data_Access
                     "database=" + AppSettings.GetDBSettings()[1]);
                 sqlConnection.Open();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
+                switch (ex.Number)
+                {
+                    case 18456:
+                        MessageBox.Show("Error # 18456: Invalid connection credentials.");
+                        break;
+                    case 5170:
+                        MessageBox.Show("SQL Error #5170: Database with this name already exists.");
+                        break;
+                    case 53:
+                        MessageBox.Show("SQL Error #53: Could not find SQL server instance, please check and try again.");
+                        break;
+                }
+                //ENABLE THIS FOR DEBUGGING SQL SERVER CONNECTION
+                //MessageBox.Show(ex.ToString(), "MyProgram", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             return true;
@@ -60,9 +75,19 @@ namespace Inventory_Manager.Data_Access
                 sqlConnection.Open();
                 return true;
             }
-            catch (SqlException sqlException)
+            catch (SqlException ex)
             {
-                MessageBox.Show(sqlException.ToString());
+                switch (ex.Number)
+                {
+                    case 18456:
+                        MessageBox.Show("Error # 18456: Invalid connection credentials.");
+                        break;
+                    case 53:
+                        MessageBox.Show("SQL Error #53: Could not find SQL server instance, please check and try again.");
+                        break;
+                }
+                //ENABLE THIS FOR DEBUGGING SQL SERVER CONNECTION
+                //MessageBox.Show(ex.ToString(), "MyProgram", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
         }

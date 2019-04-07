@@ -42,6 +42,7 @@
             this.TbxDBUsername = new System.Windows.Forms.TextBox();
             this.TbxDBName = new System.Windows.Forms.TextBox();
             this.TbxDBSvrName = new System.Windows.Forms.TextBox();
+            this.btnCloseApp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblEnterPasswordPrompt
@@ -125,7 +126,7 @@
             this.TbxDBPassword.Size = new System.Drawing.Size(193, 20);
             this.TbxDBPassword.TabIndex = 20;
             this.TbxDBPassword.Text = "Enter a Password";
-            this.TbxDBPassword.Click += new System.EventHandler(this.TbxDBPassword_Click);
+            this.TbxDBPassword.Enter += new System.EventHandler(this.TbxDBPassword_Enter);
             this.TbxDBPassword.Leave += new System.EventHandler(this.TbxDBPassword_Leave);
             // 
             // label3
@@ -169,7 +170,7 @@
             this.TbxDBUsername.Size = new System.Drawing.Size(193, 20);
             this.TbxDBUsername.TabIndex = 16;
             this.TbxDBUsername.Text = "Enter a Username";
-            this.TbxDBUsername.Click += new System.EventHandler(this.TbxDBUsername_Click);
+            this.TbxDBUsername.Enter += new System.EventHandler(this.TbxDBUsername_Enter);
             this.TbxDBUsername.Leave += new System.EventHandler(this.TbxDBUsername_Leave);
             // 
             // TbxDBName
@@ -180,7 +181,7 @@
             this.TbxDBName.Size = new System.Drawing.Size(193, 20);
             this.TbxDBName.TabIndex = 15;
             this.TbxDBName.Text = "Enter a Database Name";
-            this.TbxDBName.Click += new System.EventHandler(this.TbxDBName_Click);
+            this.TbxDBName.Enter += new System.EventHandler(this.TbxDBName_Enter);
             this.TbxDBName.Leave += new System.EventHandler(this.TbxDBName_Leave);
             // 
             // TbxDBSvrName
@@ -191,8 +192,24 @@
             this.TbxDBSvrName.Size = new System.Drawing.Size(193, 20);
             this.TbxDBSvrName.TabIndex = 14;
             this.TbxDBSvrName.Text = "Enter a Server Name";
-            this.TbxDBSvrName.Click += new System.EventHandler(this.TbxDBSvrName_Click);
+            this.TbxDBSvrName.Enter += new System.EventHandler(this.TbxDBSvrName_Enter);
             this.TbxDBSvrName.Leave += new System.EventHandler(this.TbxSvrName_Leave);
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.AutoSize = true;
+            this.btnCloseApp.FlatAppearance.BorderSize = 0;
+            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseApp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseApp.ForeColor = System.Drawing.Color.White;
+            this.btnCloseApp.Image = global::Inventory_Manager.Properties.Resources.icons8_shutdown_30;
+            this.btnCloseApp.Location = new System.Drawing.Point(417, 2);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(55, 42);
+            this.btnCloseApp.TabIndex = 29;
+            this.btnCloseApp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCloseApp.UseVisualStyleBackColor = true;
+            this.btnCloseApp.Click += new System.EventHandler(this.BtnCloseApp_Click);
             // 
             // FormLogin
             // 
@@ -200,6 +217,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(474, 399);
+            this.Controls.Add(this.btnCloseApp);
             this.Controls.Add(this.LblEnterPasswordPrompt);
             this.Controls.Add(this.LblEnterUserNamePrompt);
             this.Controls.Add(this.LblEnterDBNamePrompt);
@@ -239,5 +257,6 @@
         private System.Windows.Forms.TextBox TbxDBUsername;
         private System.Windows.Forms.TextBox TbxDBName;
         private System.Windows.Forms.TextBox TbxDBSvrName;
+        private System.Windows.Forms.Button btnCloseApp;
     }
 }

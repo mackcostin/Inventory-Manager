@@ -32,8 +32,9 @@ namespace Inventory_Manager.Forms
         }
 
         #region Text Box Click Event Handlers
-        private void TbxDBSvrName_Click(object sender, EventArgs e)
+        private void TbxDBSvrName_Enter(object sender, EventArgs e)
         {
+            TbxDBSvrName.SelectAll();
             if (TbxDBSvrName.Text == svrNameHintText)
             {
                 TbxDBSvrName.ForeColor = System.Drawing.Color.Black;
@@ -41,8 +42,9 @@ namespace Inventory_Manager.Forms
             }
         }
 
-        private void TbxDBName_Click(object sender, EventArgs e)
+        private void TbxDBName_Enter(object sender, EventArgs e)
         {
+            TbxDBName.SelectAll();
             if (TbxDBName.Text == dbNameHintText)
             {
                 TbxDBName.ForeColor = System.Drawing.Color.Black;
@@ -50,8 +52,9 @@ namespace Inventory_Manager.Forms
             }
         }
 
-        private void TbxDBUsername_Click(object sender, EventArgs e)
+        private void TbxDBUsername_Enter(object sender, EventArgs e)
         {
+            TbxDBUsername.SelectAll();
             if (TbxDBUsername.Text == usrNameHintText)
             {
                 TbxDBUsername.ForeColor = System.Drawing.Color.Black;
@@ -59,8 +62,9 @@ namespace Inventory_Manager.Forms
             }
         }
 
-        private void TbxDBPassword_Click(object sender, EventArgs e)
+        private void TbxDBPassword_Enter(object sender, EventArgs e)
         {
+            TbxDBPassword.SelectAll();
             if (TbxDBPassword.Text == passwordHintText)
             {
                 TbxDBPassword.ForeColor = System.Drawing.Color.Black;
@@ -111,79 +115,82 @@ namespace Inventory_Manager.Forms
 
         private bool CheckFormEntries()
         {
+            if (string.IsNullOrWhiteSpace(TbxDBSvrName.Text) == false && TbxDBSvrName.Text != svrNameHintText &&
+                string.IsNullOrWhiteSpace(TbxDBName.Text) == false && TbxDBName.Text != dbNameHintText &&
+                string.IsNullOrWhiteSpace(TbxDBUsername.Text) == false && TbxDBUsername.Text != usrNameHintText &&
+                string.IsNullOrWhiteSpace(TbxDBPassword.Text) == false && TbxDBPassword.Text != passwordHintText)
+            {
+                return true;
+            }
+
             if (TbxDBSvrName.Text == "" || TbxDBSvrName.Text == svrNameHintText || TbxDBSvrName == null)
             {
                 LblEnterSvrNamePrompt.Text = "Please enter a server name";
-                return false;
-
             }
-            else if (TbxDBSvrName.Text != "" || TbxDBSvrName.Text != svrNameHintText)
+            else
             {
-                return true;
+                LblEnterSvrNamePrompt.Text = null;
             }
 
             if (TbxDBName.Text == "" || TbxDBName.Text == dbNameHintText || TbxDBName == null)
             {
-                LblEnterDBNamePrompt.Text = "Please enter a server name";
-                return false;
-
+                LblEnterDBNamePrompt.Text = "Please enter a database name";
             }
-            else if (TbxDBName.Text != "" || TbxDBName.Text != dbNameHintText)
+            else
             {
-                return true;
+                LblEnterDBNamePrompt.Text = null;
             }
 
 
             if (TbxDBUsername.Text == "" || TbxDBUsername.Text == usrNameHintText || TbxDBUsername == null)
             {
                 LblEnterUserNamePrompt.Text = "Please enter a username";
-                return false;
             }
-            else if (TbxDBUsername.Text != "" || TbxDBUsername.Text != svrNameHintText)
+            else
             {
-                return true;
+                LblEnterUserNamePrompt.Text = null;
             }
-
 
             if (TbxDBPassword.Text == "" || TbxDBPassword.Text == passwordHintText || TbxDBPassword == null)
             {
                 LblEnterPasswordPrompt.Text = "Please enter a password";
-                return false;
             }
-            else if (TbxDBPassword.Text != "" || TbxDBPassword.Text != svrNameHintText)
+            else
             {
-                TbxDBPassword.PasswordChar = '*';
-                return true;
+                LblEnterPasswordPrompt.Text = null;
             }
-
-            return true;
+            return false;
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (DBConnect.ConnectDB(TbxDBSvrName.Text, TbxDBName.Text, TbxDBUsername.Text, TbxDBPassword.Text) == true)
+            if (CheckFormEntries() == true)
             {
-                AppSettings.SaveDBSettings(
-                    TbxDBSvrName.Text,
-                    TbxDBName.Text,
-                    TbxDBUsername.Text,
-                    TbxDBPassword.Text);
-                AppSettings.SaveStartupSettings(true);
+                if (DBConnect.ConnectDB(TbxDBSvrName.Text, TbxDBName.Text, TbxDBUsername.Text, TbxDBPassword.Text) == true)
+                {
+                    AppSettings.SaveDBSettings(
+                        TbxDBSvrName.Text,
+                        TbxDBName.Text,
+                        TbxDBUsername.Text,
+                        TbxDBPassword.Text);
+                    AppSettings.SaveStartupSettings(true);
 
-                this.Close();
-                Thread thread = new Thread(OpenMainForm);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
-            }
-            else
-            {
-                CheckFormEntries();
+                    this.Close();
+                    Thread thread = new Thread(OpenMainForm);
+                    thread.SetApartmentState(ApartmentState.STA);
+                    thread.Start();
+                }
             }
         }
 
         private void OpenMainForm()
         {
             Application.Run(new MainForm());
+        }
+
+        private void BtnCloseApp_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
