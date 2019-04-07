@@ -28,7 +28,18 @@ namespace Inventory_Manager.Forms
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            TbxDBSvrName.ForeColor = System.Drawing.Color.Black;
+            TbxDBSvrName.Text = AppSettings.GetDBSettings()[0];
 
+            TbxDBName.ForeColor = System.Drawing.Color.Black;
+            TbxDBName.Text = AppSettings.GetDBSettings()[1];
+
+            TbxDBUsername.ForeColor = System.Drawing.Color.Black;
+            TbxDBUsername.Text = AppSettings.GetDBSettings()[2];
+
+            TbxDBPassword.ForeColor = System.Drawing.Color.Black;
+            TbxDBPassword.PasswordChar = '*';
+            TbxDBPassword.Text = AppSettings.GetDBSettings()[3];
         }
 
         #region Text Box Click Event Handlers
