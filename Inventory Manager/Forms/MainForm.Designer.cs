@@ -33,10 +33,12 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.userControlPanel = new System.Windows.Forms.Panel();
+            this.PnlFormHeader = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCloseApp = new System.Windows.Forms.Button();
+            this.userControlPanel = new System.Windows.Forms.Panel();
             this.menuDock.SuspendLayout();
+            this.PnlFormHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuDock
@@ -121,14 +123,52 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
-            // panel2
+            // PnlFormHeader
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(203, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(847, 20);
-            this.panel2.TabIndex = 3;
+            this.PnlFormHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.PnlFormHeader.Controls.Add(this.button1);
+            this.PnlFormHeader.Controls.Add(this.btnCloseApp);
+            this.PnlFormHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PnlFormHeader.Location = new System.Drawing.Point(203, 0);
+            this.PnlFormHeader.Name = "PnlFormHeader";
+            this.PnlFormHeader.Size = new System.Drawing.Size(847, 25);
+            this.PnlFormHeader.TabIndex = 3;
+            this.PnlFormHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlFormHeader_MouseDown);
+            this.PnlFormHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlFormHeader_MouseMove);
+            this.PnlFormHeader.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PnlFormHeader_MouseUp);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackgroundImage = global::Inventory_Manager.Properties.Resources.Icon_Minimize_Window;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(799, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 25);
+            this.button1.TabIndex = 5;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.AutoSize = true;
+            this.btnCloseApp.BackgroundImage = global::Inventory_Manager.Properties.Resources.icons8_shutdown_30;
+            this.btnCloseApp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCloseApp.FlatAppearance.BorderSize = 0;
+            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseApp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseApp.ForeColor = System.Drawing.Color.White;
+            this.btnCloseApp.Location = new System.Drawing.Point(824, 0);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(25, 25);
+            this.btnCloseApp.TabIndex = 4;
+            this.btnCloseApp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCloseApp.UseVisualStyleBackColor = true;
+            this.btnCloseApp.Click += new System.EventHandler(this.BtnCloseApp_Click);
             // 
             // userControlPanel
             // 
@@ -137,22 +177,6 @@
             this.userControlPanel.Size = new System.Drawing.Size(847, 581);
             this.userControlPanel.TabIndex = 5;
             // 
-            // btnCloseApp
-            // 
-            this.btnCloseApp.AutoSize = true;
-            this.btnCloseApp.FlatAppearance.BorderSize = 0;
-            this.btnCloseApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseApp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseApp.ForeColor = System.Drawing.Color.White;
-            this.btnCloseApp.Image = global::Inventory_Manager.Properties.Resources.icons8_shutdown_30;
-            this.btnCloseApp.Location = new System.Drawing.Point(995, 22);
-            this.btnCloseApp.Name = "btnCloseApp";
-            this.btnCloseApp.Size = new System.Drawing.Size(55, 42);
-            this.btnCloseApp.TabIndex = 4;
-            this.btnCloseApp.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCloseApp.UseVisualStyleBackColor = true;
-            this.btnCloseApp.Click += new System.EventHandler(this.BtnCloseApp_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,8 +184,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1050, 652);
             this.Controls.Add(this.userControlPanel);
-            this.Controls.Add(this.btnCloseApp);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.PnlFormHeader);
             this.Controls.Add(this.menuDock);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
@@ -170,6 +193,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuDock.ResumeLayout(false);
             this.menuDock.PerformLayout();
+            this.PnlFormHeader.ResumeLayout(false);
+            this.PnlFormHeader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,12 +203,13 @@
         #endregion
         private System.Windows.Forms.Panel menuDock;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PnlFormHeader;
         private System.Windows.Forms.Button btnManageInventory;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Panel userControlPanel;
         private System.Windows.Forms.Button btnCloseApp;
+        private System.Windows.Forms.Button button1;
     }
 }
 
